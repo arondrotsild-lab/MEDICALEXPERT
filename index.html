@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MedExpert Turkey</title>
+<meta name="description" content="MedExpert Turkey — медицинский консьерж в Турции. Врачи всех направлений подбирают клинику и сопровождают вас на всех этапах лечения.">
+<meta name="theme-color" content="#06171b">
+<meta property="og:title" content="MedExpert Turkey">
+<meta property="og:description" content="Ваше лечение в Турции под нашей заботой">
+<meta property="og:image" content="media/hero-poster.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: cinematic dark lagoon, gold particle object as the hero, horizontal service gallery, one gold "light" band */
+:root{
+  --ink:#06171b;
+  --ink-2:#0b2226;
+  --ink-3:#113035;
+  --pearl:#f1ebe1;
+  --mist:#9db1af;
+  --gold:#d6b98a;
+  --gold-2:#f3dfb8;
+  --gold-3:#a8875a;
+  --line:rgba(214,185,138,.17);
+  --f-display:"Bodoni Moda","Playfair Display","Didot",Georgia,serif;
+  --f-brand:"Bodoni Moda","Didot",Georgia,serif;
+  --start:left;--end:right;
+  --f-body:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.16,.84,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.lenis,html.lenis body{height:auto;scroll-behavior:auto}
+body{background:var(--ink);color:var(--pearl);font-family:var(--f-body);font-size:16px;line-height:1.6;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--ink)}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(44px,env(safe-area-inset-left,0px));padding-right:max(44px,env(safe-area-inset-right,0px))}}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:-.015em}
+h2{font-size:clamp(36px,5.4vw,76px);line-height:1.02}
+p{margin:0}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+
+/* animated gold text */
+.shine{background:linear-gradient(110deg,var(--gold-3) 0%,var(--gold) 22%,#fff4dc 40%,var(--gold-2) 50%,var(--gold) 66%,var(--gold-3) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite;font-style:italic}
+@keyframes shine{from{background-position:120% 0}to{background-position:-130% 0}}
+
+.grain{position:fixed;inset:0;pointer-events:none;z-index:55;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* loader: logo draws, counter runs, curtain lifts */
+.loader{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:var(--ink);transition:clip-path 1.2s var(--ease);clip-path:inset(0 0 0 0)}
+.loader.done{clip-path:inset(0 0 100% 0)}
+.loader .in{display:grid;justify-items:center;gap:26px}
+.loader svg{width:84px;height:84px}
+.loader .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.4s var(--ease) forwards}
+.loader .d2{animation-delay:.35s}
+.loader .star{opacity:0;animation:pop .5s 1.2s forwards}
+.loader .num{font-family:var(--f-display);font-style:italic;font-size:15px;letter-spacing:.3em;color:var(--gold)}
+.loader .bar{width:160px;height:1px;background:var(--line);position:relative;overflow:hidden}
+.loader .bar i{position:absolute;inset:0;background:var(--gold);transform-origin:left;transform:scaleX(0);animation:bar 1.6s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+@keyframes bar{to{transform:scaleX(1)}}
+
+/* nav */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .6s,border-color .6s,transform .6s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(6,23,27,.7);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-color:var(--line)}
+.nav.hide{transform:translateY(-110%)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:40px;height:40px;flex:none;transition:transform 1.2s var(--ease)}
+.brand:hover svg{transform:scale(1.08)}
+.wordmark{display:flex;flex-direction:column;line-height:1}
+.wordmark b{font-family:var(--f-brand);font-weight:500;font-size:19px;letter-spacing:.16em}
+.wordmark span{font-family:var(--f-mono);font-size:9px;letter-spacing:.52em;color:var(--gold);margin-top:5px}
+.links{display:flex;gap:36px;font-size:13px;letter-spacing:.04em}
+.links a{position:relative;color:var(--mist);transition:color .3s}
+.links a::after{content:"";position:absolute;inset-inline-start:0;bottom:-6px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:var(--end);transition:transform .6s var(--ease)}
+.links a:hover{color:var(--pearl)}
+.links a:hover::after{transform:scaleX(1);transform-origin:var(--start)}
+@media (max-width:900px){.links{display:none}}
+
+.btn{--p:17px 30px;display:inline-flex;align-items:center;gap:12px;padding:var(--p);border-radius:999px;font-family:var(--f-body);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:1px solid var(--gold);color:var(--ink);background:linear-gradient(120deg,var(--gold-3),var(--gold) 30%,var(--gold-2) 55%,var(--gold) 80%);background-size:200% 100%;transition:background-position 1s var(--ease),transform .5s var(--ease),box-shadow .5s;position:relative;overflow:hidden;will-change:transform}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.6) 50%,transparent 65%);transform:translateX(-130%)}
+.btn:hover::after{transform:translateX(130%);transition:transform 1.1s var(--ease)}
+.btn:hover{background-position:100% 0;box-shadow:0 14px 50px -12px rgba(214,185,138,.6)}
+.btn.ghost{background:rgba(255,255,255,.02);color:var(--pearl);border-color:var(--line);backdrop-filter:blur(8px)}
+.btn.ghost::after{background:linear-gradient(115deg,transparent 35%,rgba(214,185,138,.25) 50%,transparent 65%)}
+.btn.ghost:hover{border-color:var(--gold);box-shadow:none}
+.btn .arr{transition:transform .5s var(--ease)}
+.btn:hover .arr{transform:translateX(5px)}
+.nav .btn{--p:11px 20px;font-size:11.5px}
+@media (max-width:480px){.nav .btn{display:none}}
+
+/* hero */
+.hero{position:relative;padding-block:150px 70px;overflow:hidden;isolation:isolate}
+#orbit{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 70% at 75% 45%,rgba(40,92,96,.55),transparent 70%),radial-gradient(40% 50% at 10% 90%,rgba(214,185,138,.07),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:160px;background:linear-gradient(transparent,var(--ink));z-index:-1}
+.hero-text{max-width:760px;position:relative}
+.hero h1{font-size:clamp(36px,5.4vw,80px);line-height:1.04;margin-top:26px;letter-spacing:-.005em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.06em}
+.hero h1 .ln>span{display:inline-block;animation:rise 1.5s var(--ease) both;animation-delay:calc(var(--d,0) * .13s + 1.5s)}
+@keyframes rise{from{transform:translateY(110%) rotate(3deg)}to{transform:none}}
+.hero .lede{max-width:44ch;color:var(--mist);font-size:17.5px;margin-top:36px;animation:fade 1.5s 2.1s var(--ease) both}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:42px;animation:fade 1.5s 2.25s var(--ease) both}
+.hero .eyebrow{animation:fade 1.2s 1.4s var(--ease) both}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.scrollcue{position:absolute;right:max(44px,env(safe-area-inset-right,0px));bottom:110px;display:flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:10px;letter-spacing:.3em;color:var(--mist);writing-mode:vertical-rl;animation:fade 1.5s 2.6s both}
+.scrollcue i{width:1px;height:70px;background:var(--line);position:relative;overflow:hidden}
+.scrollcue i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--gold);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{to{top:110%}}
+@media (max-width:900px){.scrollcue{display:none}}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:100px;border-top:1px solid var(--line);animation:fade 1.5s 2.4s var(--ease) both}
+.facts div{padding:24px 20px 0 0;display:flex;flex-direction:column;gap:6px}
+.facts b{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,3.6vw,48px);color:var(--pearl);font-variant-numeric:tabular-nums;line-height:1}
+.facts b small{font-size:.45em;color:var(--gold);margin-inline-start:4px;font-family:var(--f-mono);letter-spacing:.1em}
+.facts span{font-size:13px;color:var(--mist)}
+@media (max-width:720px){.facts{grid-template-columns:1fr 1fr;row-gap:22px}}
+
+/* velocity marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:26px;background:var(--ink-2);display:grid;gap:10px}
+.mrow{display:flex;width:max-content;will-change:transform}
+.mrow span{font-family:var(--f-display);font-style:italic;font-size:clamp(34px,5vw,72px);line-height:1.05;white-space:nowrap;display:flex;align-items:center;gap:48px;padding-inline-end:48px}
+.mrow span::after{content:"";width:12px;height:12px;border:1px solid var(--gold);transform:rotate(45deg)}
+.mrow.outline span{color:transparent;-webkit-text-stroke:1px rgba(214,185,138,.55)}
+
+/* sections */
+section{position:relative}
+.sec{padding-block:clamp(100px,13vw,170px)}
+.sec-head{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end;margin-bottom:64px}
+.sec-head p{color:var(--mist);max-width:44ch;justify-self:end}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr}.sec-head p{justify-self:start}}
+.sec-head h2{margin-top:20px}
+
+/* word rise for headings */
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.split .w>span{display:inline-block;transition:transform 1.3s var(--ease);transition-delay:calc(var(--i) * 55ms)}
+.js .split:not(.in) .w>span{transform:translateY(105%)}
+
+/* horizontal services gallery */
+.hs{position:relative}
+.hs-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:44px}
+.hs-top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.hs-top h2{margin-top:20px}
+.hs-count{font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;color:var(--mist)}
+.hs-count b{color:var(--gold-2);font-weight:500}
+.track{display:flex;gap:26px;will-change:transform;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.track{padding-inline-start:max(44px,calc((100vw - 1280px)/2 + 44px))}}
+.card{flex:none;width:min(420px,82vw);height:min(540px,62vh);min-height:430px;border-radius:26px;position:relative;overflow:hidden;border:1px solid var(--line);background:var(--ink-2);transform-style:preserve-3d;transition:transform .7s var(--ease),border-color .5s;display:flex;flex-direction:column}
+.card:hover{border-color:rgba(214,185,138,.5)}
+.card .vis{flex:1;position:relative;overflow:hidden;display:grid;place-items:center}
+.card .vis::before{content:"";position:absolute;inset:-30%;background:var(--bg);filter:blur(2px);transition:transform 1.6s var(--ease)}
+.card:hover .vis::before{transform:scale(1.15) rotate(8deg)}
+.card .vis svg{width:110px;height:110px;stroke:var(--gold-2);fill:none;stroke-width:.9;position:relative;transition:transform 1.2s var(--ease);filter:drop-shadow(0 6px 24px rgba(214,185,138,.35))}
+.card:hover .vis svg{transform:translateY(-8px) scale(1.06)}
+.card .body{padding:26px 28px 28px;display:grid;gap:12px;background:linear-gradient(180deg,rgba(6,23,27,.0),rgba(6,23,27,.6));border-top:1px solid var(--line)}
+.card h3{font-size:32px;line-height:1.05}
+.card p{color:var(--mist);font-size:14.5px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tags i{font-style:normal;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:var(--gold-2)}
+.v1{--bg:radial-gradient(circle at 30% 30%,#2c5c5c,transparent 55%),radial-gradient(circle at 75% 70%,rgba(214,185,138,.45),transparent 50%),#0c2428}
+.v2{--bg:conic-gradient(from 200deg at 60% 40%,#0c2428,#1f4a4d,rgba(243,223,184,.55),#0c2428 70%)}
+.v3{--bg:radial-gradient(ellipse at 50% 120%,rgba(214,185,138,.55),transparent 60%),linear-gradient(160deg,#173b3f,#081b1f)}
+.v4{--bg:repeating-radial-gradient(circle at 50% 50%,rgba(214,185,138,.18) 0 1px,transparent 1px 22px),radial-gradient(circle,#1d4447,#081b1f 70%)}
+.v5{--bg:radial-gradient(circle at 50% 50%,rgba(243,223,184,.5),transparent 25%),conic-gradient(from 0deg,#0c2428,#25575a,#0c2428,#25575a,#0c2428)}
+.v6{--bg:linear-gradient(135deg,#0b2226 20%,rgba(214,185,138,.4) 50%,#0b2226 80%)}
+.v7{--bg:radial-gradient(circle at 50% 50%,rgba(214,185,138,.4),transparent 35%),repeating-conic-gradient(from 0deg,#0c2428 0 15deg,#14373b 15deg 30deg)}
+.v8{--bg:radial-gradient(circle at 70% 30%,rgba(243,223,184,.45),transparent 45%),linear-gradient(200deg,#1b4346,#081b1f)}
+.v9{--bg:linear-gradient(90deg,#0b2226,#1a4144 50%,#0b2226),radial-gradient(circle at 50% 100%,rgba(214,185,138,.5),transparent 50%)}
+.v10{--bg:radial-gradient(circle at 35% 40%,rgba(243,223,184,.4),transparent 30%),radial-gradient(circle at 65% 60%,#2a5a5c,transparent 45%),#0a1f23}
+.v11{--bg:repeating-linear-gradient(135deg,rgba(214,185,138,.12) 0 1px,transparent 1px 18px),radial-gradient(circle,#1d4447,#081b1f 70%)}
+.v12{--bg:conic-gradient(from 90deg at 50% 60%,#0c2428,rgba(243,223,184,.5),#1f4a4d,#0c2428)}
+
+/* dentistry feature */
+.dent{background:var(--ink-2);border-block:1px solid var(--line)}
+.dent-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,90px);align-items:start}
+@media (max-width:900px){.dent-grid{grid-template-columns:1fr}}
+.dent-side{position:sticky;top:110px;display:grid;gap:28px}
+@media (max-width:900px){.dent-side{position:relative;top:0}}
+.dent-side p{color:var(--mist);max-width:42ch}
+.tooth{width:min(300px,70%);aspect-ratio:1;max-width:100%;position:relative}
+.tooth svg{width:100%;height:100%;overflow:visible}
+.tooth .t-out{stroke:url(#gg);stroke-width:1.1;fill:none;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 2.6s var(--ease)}
+.js .tooth:not(.in) .t-out{stroke-dashoffset:1}
+.tooth .t-glow{fill:url(#tg);transition:opacity 2s 1s}
+.js .tooth:not(.in) .t-glow{opacity:0}
+.tooth .t-spark{fill:var(--gold-2);animation:twinkle 2.4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.treat{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-inline-start:1px solid var(--line)}
+@media (max-width:600px){.treat{grid-template-columns:1fr}}
+.treat li{padding:28px 26px;border-inline-end:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:10px;align-content:start;position:relative;overflow:hidden;transition:background .6s}
+.treat li::before{content:"";position:absolute;inset:0;background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(214,185,138,.12),transparent 60%);opacity:0;transition:opacity .5s}
+.treat li:hover::before{opacity:1}
+.treat h3{font-size:24px;line-height:1.15}
+.treat p{color:var(--mist);font-size:14px}
+.treat .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.hs-bar{height:1px;background:var(--line);position:relative}
+.hs-bar i{position:absolute;inset:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));transform-origin:var(--start);transform:scaleX(0)}
+@media (max-width:900px),(max-height:620px){
+  .hs{height:auto!important}
+  .hs-pin{position:relative;height:auto;padding-block:100px 60px}
+  .track{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;padding-bottom:10px;scrollbar-width:none}
+  .track::-webkit-scrollbar{display:none}
+  .card{scroll-snap-align:start;height:480px}
+  .hs-bar{display:none}
+}
+
+/* journey */
+.journey{background:var(--ink-2);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.steps::before{content:"";position:absolute;top:27px;left:0;right:0;height:1px;background:var(--line)}
+.steps .prog{position:absolute;top:27px;inset-inline-start:0;height:1px;width:100%;background:linear-gradient(90deg,var(--gold),var(--gold-2));transform-origin:var(--start);transform:scaleX(var(--p,0));box-shadow:0 0 12px rgba(214,185,138,.7)}
+.step{padding-inline-end:24px;position:relative}
+.step .n{width:55px;height:55px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--f-display);font-style:italic;font-size:20px;background:var(--ink-2);color:var(--mist);position:relative;z-index:1;transition:all .8s var(--ease)}
+.step.lit .n{border-color:var(--gold);color:var(--ink);background:var(--gold);box-shadow:0 0 0 8px rgba(214,185,138,.08),0 0 30px rgba(214,185,138,.4)}
+.step h3{font-size:23px;margin-top:28px;line-height:1.2}
+.step p{color:var(--mist);font-size:14px;margin-top:10px}
+.step small{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;color:var(--gold);margin-top:14px;text-transform:uppercase}
+@media (max-width:960px){.steps{grid-template-columns:1fr;gap:38px}.steps::before,.steps .prog{top:0;bottom:0;left:auto;right:auto;inset-inline-start:27px;width:1px;height:auto}.steps .prog{transform-origin:top;transform:scaleY(var(--p,0))}.step{display:grid;grid-template-columns:55px 1fr;column-gap:24px;padding:0}.step h3{margin-top:12px}.step>*:not(.n){grid-column:2}.step .n{grid-row:1/span 3}}
+
+/* concierge */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
+@media (max-width:900px){.duo{grid-template-columns:1fr}}
+.orb{aspect-ratio:1;max-width:100%;position:relative}
+#orb{width:100%;height:100%;display:block}
+.orb .label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center}
+.orb .label b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(60px,9vw,110px);line-height:1}
+.orb .label span{font-family:var(--f-mono);font-size:11px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+.incl{list-style:none;padding:0;margin:40px 0 0;display:grid;border-top:1px solid var(--line)}
+.incl li{display:grid;grid-template-columns:28px 1fr auto;gap:16px;align-items:baseline;padding:19px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .6s var(--ease)}
+.incl li::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:var(--start);transition:transform .8s var(--ease)}
+.incl li:hover{padding-inline-start:12px}
+.incl li:hover::after{transform:scaleX(1)}
+.incl li::before{content:"";width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg) translateY(-2px)}
+.incl li b{font-weight:500}
+.incl li span{color:var(--mist);font-size:13px;text-align:end}
+@media (max-width:520px){.incl li{grid-template-columns:28px 1fr}.incl li span{grid-column:2;text-align:start}}
+
+/* gold band: expands as you scroll */
+.band{padding-block:40px}
+.band-in{border-radius:calc(36px * (1 - var(--b,0)));clip-path:inset(0 calc(8% * (1 - var(--b,0))) round calc(36px * (1 - var(--b,0))));background:radial-gradient(80% 120% at 85% 0%,#fff1d4 0%,transparent 55%),linear-gradient(125deg,var(--gold-3),var(--gold) 40%,var(--gold-2) 70%,var(--gold));color:var(--ink);padding-block:clamp(90px,12vw,170px);position:relative;overflow:hidden}
+.band-in::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 48%,transparent 62%);background-size:300% 100%;animation:sweep 6s ease-in-out infinite}
+@keyframes sweep{0%{background-position:150% 0}60%,100%{background-position:-60% 0}}
+.band blockquote{margin:0;font-family:var(--f-display);font-size:clamp(32px,5vw,70px);line-height:1.08;max-width:19ch;text-wrap:balance;position:relative;z-index:1}
+.band blockquote em{font-style:italic}
+.band .eyebrow{color:var(--ink);margin-top:36px;position:relative;z-index:1}
+
+/* faq */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+@media (max-width:900px){.faq{grid-template-columns:1fr}}
+details{border-bottom:1px solid var(--line)}
+details:first-child{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:26px 0;font-family:var(--f-display);font-size:clamp(20px,2.3vw,27px);transition:color .4s}
+summary:hover{color:var(--gold-2)}
+summary::-webkit-details-marker{display:none}
+summary .pl{flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;position:relative;transition:transform .7s var(--ease),border-color .4s}
+summary .pl::before,summary .pl::after{content:"";position:absolute;left:10px;right:10px;top:50%;height:1px;background:var(--gold)}
+summary .pl::after{transform:rotate(90deg);transition:transform .7s var(--ease)}
+details[open] summary .pl{transform:rotate(180deg);border-color:var(--gold)}
+details[open] summary .pl::after{transform:rotate(0)}
+details .ans{color:var(--mist);padding:0 0 28px;padding-inline-end:50px;max-width:62ch;animation:fade .8s var(--ease)}
+
+/* contact */
+.contact{background:radial-gradient(70% 80% at 0% 100%,rgba(214,185,138,.08),transparent 60%),linear-gradient(180deg,var(--ink) 0%,var(--ink-3) 100%);border-top:1px solid var(--line)}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,100px)}
+@media (max-width:900px){.c-grid{grid-template-columns:1fr}}
+.c-grid h2{font-size:clamp(44px,7vw,100px)}
+.social{display:flex;flex-direction:column;margin-top:48px;border-top:1px solid var(--line)}
+.social a{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);font-family:var(--f-display);font-size:26px;transition:color .4s,padding .6s var(--ease)}
+.social a small{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--mist)}
+.social a:hover{color:var(--gold-2);padding-inline-start:12px}
+.glass{background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:28px;padding:clamp(26px,4vw,46px);backdrop-filter:blur(10px)}
+form{display:grid;gap:26px;align-content:start}
+.field{position:relative}
+.field input,.field select,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--pearl);font:inherit;font-size:17px;padding:26px 0 12px;outline:none;transition:border-color .4s;border-radius:0;appearance:none}
+.field select{cursor:pointer}
+.field select option{background:var(--ink-2);color:var(--pearl)}
+.field textarea{resize:vertical;min-height:90px}
+.field label{position:absolute;inset-inline-start:0;top:26px;color:var(--mist);font-size:15px;pointer-events:none;transition:all .5s var(--ease)}
+.field::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:var(--start);transition:transform .8s var(--ease)}
+.field:focus-within::after{transform:scaleX(1)}
+.field input:focus+label,.field input:not(:placeholder-shown)+label,.field textarea:focus+label,.field textarea:not(:placeholder-shown)+label,.field.sel label{top:0;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-family:var(--f-mono)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+.form-note{font-size:12.5px;color:var(--mist)}
+.ok{border:1px solid var(--gold);border-radius:14px;padding:18px 20px;color:var(--gold-2);font-size:14.5px;animation:fade .8s var(--ease)}
+
+footer{border-top:1px solid var(--line);padding-block:40px;color:var(--mist);font-size:12.5px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+.giant{font-family:var(--f-brand);font-size:clamp(60px,15vw,230px);line-height:.85;letter-spacing:-.03em;text-align:center;padding-block:40px 10px;color:transparent;-webkit-text-stroke:1px rgba(214,185,138,.35);white-space:nowrap;overflow:hidden;user-select:none}
+
+/* reveal */
+.rv{transition:transform 1.3s var(--ease),opacity 1.3s var(--ease)}
+.js .rv:not(.in){transform:translateY(46px);opacity:.2}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js .rv:not(.in),.js .split:not(.in) .w>span{transform:none;opacity:1}
+  .loader{display:none}
+}
+
+/* hero phone with video */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:56px}}
+.phone-stage{position:relative;display:grid;place-items:center;perspective:1400px;animation:fade 1.6s 1.8s var(--ease) both}
+.phone-glow{position:absolute;width:120%;aspect-ratio:1;max-width:520px;border-radius:50%;background:radial-gradient(circle,rgba(214,185,138,.22),rgba(40,92,96,.25) 40%,transparent 68%);filter:blur(20px);animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.08);opacity:.8}}
+.phone{--w:min(300px,70vw);position:relative;width:var(--w);aspect-ratio:9/19.5;max-width:100%;border-radius:calc(var(--w)*.18);padding:calc(var(--w)*.032);background:linear-gradient(145deg,#f1dcb6 0%,#b8996a 18%,#e9d3ab 34%,#8f7651 52%,#d9c095 70%,#a7895d 86%,#ead6b0 100%);box-shadow:0 0 0 1px rgba(255,240,210,.35) inset,0 2px 1px rgba(255,255,255,.4) inset,0 50px 90px -30px rgba(0,0,0,.75),0 30px 60px -40px rgba(214,185,138,.5);transform-style:preserve-3d;will-change:transform;animation:float 7s ease-in-out infinite}
+@keyframes float{50%{translate:0 -14px}}
+.phone::before{content:"";position:absolute;inset:calc(var(--w)*.012);border-radius:calc(var(--w)*.17);background:#0a0a0a;box-shadow:0 0 0 1px rgba(0,0,0,.6)}
+.ph-btn{position:absolute;width:4px;border-radius:2px;background:linear-gradient(90deg,#8f7651,#e9d3ab,#a7895d)}
+.ph-act{left:-3px;top:17%;height:5%}
+.ph-v1{left:-3px;top:25%;height:9%}
+.ph-v2{left:-3px;top:36%;height:9%}
+.ph-pwr{right:-3px;top:28%;height:14%}
+.ph-cam{right:-3px;top:58%;height:7%}
+.screen{position:relative;width:100%;height:100%;border-radius:calc(var(--w)*.15);overflow:hidden;background:#000;isolation:isolate}
+.screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.island{position:absolute;top:calc(var(--w)*.035);left:50%;translate:-50% 0;width:32%;height:calc(var(--w)*.1);border-radius:999px;background:#000;z-index:3;box-shadow:0 0 0 1px rgba(255,255,255,.04)}
+.island::after{content:"";position:absolute;right:14%;top:50%;width:calc(var(--w)*.035);aspect-ratio:1;translate:0 -50%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2a3a55,#05070c 70%)}
+.glare{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 70%,rgba(255,255,255,.05) 100%)}
+.ph-placeholder{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(120% 70% at 50% 0%,#1d4a4d,transparent 60%),radial-gradient(90% 60% at 50% 110%,rgba(214,185,138,.35),transparent 60%),#06171b;transition:opacity .8s}
+.ph-placeholder::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(243,223,184,.18) 48%,transparent 62%);background-size:300% 100%;animation:sweep 5s ease-in-out infinite}
+.ph-placeholder svg{width:38%;animation:breathe 4s ease-in-out infinite}
+.ph-placeholder b{font-family:var(--f-brand);font-weight:500;font-size:calc(var(--w)*.075);letter-spacing:.18em;color:var(--pearl)}
+.ph-placeholder span{font-family:var(--f-mono);font-size:calc(var(--w)*.03);letter-spacing:.5em;color:var(--gold)}
+.ph-placeholder.gone{opacity:0;pointer-events:none}
+@media (max-width:900px){.phone{--w:min(250px,64vw)}}
+
+.snd{position:absolute;bottom:-26px;left:50%;translate:-50% 0;z-index:5;display:inline-flex;align-items:center;gap:12px;padding:10px 20px 10px 12px;border-radius:999px;border:1px solid rgba(214,185,138,.45);background:rgba(6,23,27,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--pearl);font:inherit;font-size:13px;font-weight:500;letter-spacing:.04em;cursor:pointer;white-space:nowrap;box-shadow:0 14px 40px -14px rgba(0,0,0,.7);transition:border-color .4s,background .4s,transform .5s var(--ease)}
+.snd:hover{border-color:var(--gold);background:rgba(11,34,38,.85)}
+.snd-ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(140deg,var(--gold-2),var(--gold) 55%,var(--gold-3));color:var(--ink)}
+.snd-ic svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.snd .eq{display:none;gap:2px;align-items:flex-end;height:14px}
+.snd .eq i{width:3px;height:100%;background:var(--ink);border-radius:2px;animation:eq 1s ease-in-out infinite;transform-origin:bottom}
+.snd .eq i:nth-child(2){animation-delay:.2s}.snd .eq i:nth-child(3){animation-delay:.4s}.snd .eq i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+.snd[aria-pressed="true"] .ic-off{display:none}
+.snd[aria-pressed="true"] .eq{display:flex}
+.snd[aria-pressed="true"]{border-color:var(--gold)}
+[dir="rtl"] .snd{padding:10px 12px 10px 20px}
+
+/* video inside a service card */
+.card .vis.has-vid::before{display:none}
+.card .vis.has-vid{background:#000}
+.card .vis video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.card .vis.has-vid::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,23,27,.15),rgba(6,23,27,.55));transition:opacity .6s;pointer-events:none}
+.card .vis.playing::after{opacity:0}
+.vplay{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:2;padding:0;border:0;background:none;border-radius:50%;cursor:pointer;transition:opacity .5s,top .7s var(--ease),transform .4s var(--ease)}
+.vplay:hover{transform:scale(1.08)}
+.vp-ic{width:56px!important;height:56px!important}
+.vp-ic svg{width:20px!important;height:20px!important}
+.vp-ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(140deg,var(--gold-2),var(--gold) 55%,var(--gold-3));color:var(--ink);box-shadow:0 0 0 0 rgba(214,185,138,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 14px rgba(214,185,138,0)}100%{box-shadow:0 0 0 0 rgba(214,185,138,0)}}
+.vp-ic svg{width:16px;height:16px;fill:currentColor}
+.vplay .i-pause{display:none}
+.vis.playing .vplay{top:calc(100% - 38px);opacity:.0}
+.vis.playing:hover .vplay,.vis.playing .vplay:focus-visible{opacity:1}
+.vis.playing .vplay .i-play{display:none}
+.vis.playing .vplay .i-pause{display:block}
+.vis.playing .vp-ic{animation:none}
+@media (hover:none){.vis.playing .vplay{opacity:1}}
+
+/* concierge video */
+.cvid-wrap{position:relative;display:grid;place-items:center;padding-block:30px}
+.cvid-wrap::before,.cvid-wrap::after{content:"";position:absolute;left:50%;top:50%;translate:-50% -50%;aspect-ratio:1;border-radius:50%;pointer-events:none}
+.cvid-wrap::before{width:min(560px,115%);border:1px solid rgba(214,185,138,.18)}
+.cvid-wrap::after{width:min(700px,140%);border:1px dashed rgba(214,185,138,.1);animation:spin 80s linear infinite}
+@keyframes spin{to{rotate:360deg}}
+.cvid{position:relative;z-index:1;width:min(380px,78vw);max-width:100%;aspect-ratio:9/16}
+.cvid video{width:100%;height:100%;object-fit:cover;display:block;border-radius:30px;border:1px solid rgba(214,185,138,.4);box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 8px rgba(214,185,138,.04);background:var(--ink-2)}
+.cbadge{position:absolute;bottom:28px;inset-inline-start:-28px;display:flex;align-items:center;gap:14px;padding:14px 22px 14px 18px;border-radius:20px;border:1px solid rgba(214,185,138,.4);background:rgba(6,23,27,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 20px 50px -20px rgba(0,0,0,.7)}
+.cbadge b{font-family:var(--f-brand);font-weight:400;font-size:54px;line-height:.9;background:linear-gradient(160deg,var(--gold-2),var(--gold) 55%,var(--gold-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cbadge span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2);max-width:14ch;line-height:1.5}
+@media (max-width:600px){.cbadge{inset-inline-start:-8px;bottom:18px}}
+
+/* team */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:start}
+@media (max-width:900px){.team-grid{grid-template-columns:1fr}}
+.team-side{display:grid;gap:26px}
+.team-side p{color:var(--mist);max-width:46ch;font-size:16.5px}
+.team-num{display:flex;align-items:center;gap:20px;padding-top:24px;border-top:1px solid var(--line);max-width:46ch}
+.team-num b{font-family:var(--f-brand);font-weight:400;font-size:clamp(64px,7vw,96px);line-height:.9;background:linear-gradient(160deg,var(--gold-2),var(--gold) 50%,var(--gold-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.team-num span{color:var(--mist);font-size:14.5px;max-width:24ch}
+.pts{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.pts li{display:grid;grid-template-columns:56px 1fr;gap:22px;align-items:start;padding:28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,rgba(214,185,138,.06),rgba(214,185,138,0) 60%);transition:border-color .5s,transform .7s var(--ease)}
+.pts li:hover{border-color:rgba(214,185,138,.45);transform:translateY(-4px)}
+.pts .pi{width:56px;height:56px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;box-shadow:0 0 0 6px rgba(214,185,138,.05)}
+.pts .pi svg{width:26px;height:26px;fill:none;stroke:var(--gold-2);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.pts h3{font-size:24px;line-height:1.2}
+.pts p{color:var(--mist);font-size:14.5px;margin-top:8px}
+@media (max-width:520px){.pts li{grid-template-columns:1fr;gap:16px;padding:24px}}
+
+/* language switcher */
+.navr{display:flex;align-items:center;gap:14px}
+.lang{position:relative}
+.lang-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--line);color:var(--pearl);border-radius:999px;padding:9px 14px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;cursor:pointer;transition:border-color .4s}
+.lang-btn:hover,.lang.open .lang-btn{border-color:var(--gold)}
+.lang-btn svg{width:10px;height:10px;stroke:var(--gold);fill:none;stroke-width:1.5;transition:transform .5s var(--ease)}
+.lang.open .lang-btn svg{transform:rotate(180deg)}
+.lang-menu{position:absolute;top:calc(100% + 10px);inset-inline-end:0;min-width:190px;margin:0;padding:8px;list-style:none;background:rgba(11,34,38,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .45s var(--ease)}
+.lang.open .lang-menu{opacity:1;visibility:visible;transform:none}
+.lang-menu button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;background:none;border:0;color:var(--pearl);font:inherit;font-size:14px;padding:10px 12px;border-radius:10px;cursor:pointer;text-align:start;transition:background .3s,color .3s}
+.lang-menu button small{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;color:var(--mist)}
+.lang-menu button:hover{background:rgba(214,185,138,.08);color:var(--gold-2)}
+.lang-menu button[aria-current="true"]{color:var(--gold-2)}
+.lang-menu button[aria-current="true"] small{color:var(--gold)}
+
+/* right-to-left (Arabic) */
+:root[dir="rtl"]{--f-display:"Amiri","Bodoni Moda",serif;--f-body:"IBM Plex Sans Arabic","Manrope",sans-serif;--f-mono:"IBM Plex Sans Arabic","IBM Plex Mono",monospace;--start:right;--end:left}
+[dir="rtl"] body *{letter-spacing:0!important}
+[dir="rtl"] .wordmark b{letter-spacing:.16em!important}
+[dir="rtl"] .wordmark span{letter-spacing:.52em!important}
+[dir="rtl"] .lang-btn,[dir="rtl"] .lang-menu small{letter-spacing:.1em!important;font-family:"IBM Plex Mono",monospace}
+[dir="rtl"] em,[dir="rtl"] .shine,[dir="rtl"] .mrow span{font-style:normal}
+[dir="rtl"] h1,[dir="rtl"] h2{line-height:1.35}
+[dir="rtl"] .hero h1{line-height:1.3}
+[dir="rtl"] .eyebrow{font-size:13px}
+[dir="rtl"] .btn{font-size:14px}
+[dir="rtl"] .arr{display:inline-block;transform:scaleX(-1)}
+[dir="rtl"] .btn:hover .arr{transform:scaleX(-1) translateX(5px)}
+[dir="rtl"] .scrollcue{right:auto;left:max(44px,env(safe-area-inset-left,0px))}
+[dir="rtl"] .card h3{font-size:30px}
+[dir="rtl"] .facts b{direction:ltr;unicode-bidi:isolate;align-self:flex-start}
+[dir="rtl"] .facts b small{font-size:.38em}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3dfb8"/><stop offset=".55" stop-color="#d6b98a"/><stop offset="1" stop-color="#a8875a"/>
+    </linearGradient>
+    <linearGradient id="gp" gradientUnits="userSpaceOnUse" x1="12" y1="20" x2="52" y2="50"><stop offset="0" stop-color="#f3dfb8"/><stop offset=".55" stop-color="#d6b98a"/><stop offset="1" stop-color="#a88a5c"/></linearGradient>
+    <radialGradient id="tg" cx=".4" cy=".3" r=".8">
+      <stop offset="0" stop-color="#f3dfb8" stop-opacity=".35"/><stop offset=".6" stop-color="#d6b98a" stop-opacity=".06"/><stop offset="1" stop-color="#d6b98a" stop-opacity="0"/>
+    </radialGradient>
+    <symbol id="mark" viewBox="0 0 64 64">
+      <path d="M56.49 18.43 A28 28 0 1 1 45.57 7.51" fill="none" stroke="url(#gg)" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M51.8 9.4l.9 1.9 2.1.3-1.5 1.5.4 2.1-1.9-1-1.9 1 .4-2.1-1.5-1.5 2.1-.3z" fill="url(#gg)"/>
+      <g fill="none" stroke="url(#gp)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 34.5C18.5 35 21.5 36.5 24.5 39.5C27 42 30 43 33.5 42.5L45 40.5C47.6 40 49.6 41.6 48.4 43.6C47.6 44.9 46.2 45.4 44.6 45.8L35 48.4C30 49.7 24.5 49 19.5 46.8L14 44.5"/>
+        <path d="M33.5 42.5L40.5 41.2"/>
+        <path d="M24.5 39.5C26 36 26.4 33 25.6 30.2C25 28.2 26.2 26.8 27.8 27.4C29.6 28.1 30.6 30.6 31 33.4"/>
+      </g>
+      <path d="M36.5 18.5c-1.6-2.8-6-2.2-6 1.4 0 3.2 4 5.6 6 7.6 2-2 6-4.4 6-7.6 0-3.6-4.4-4.2-6-1.4z" fill="url(#gg)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="in">
+    <svg viewBox="0 0 64 64">
+      <path class="draw" pathLength="1" d="M56.49 18.43 A28 28 0 1 1 45.57 7.51" fill="none" stroke="url(#gg)" stroke-width="1.4" stroke-linecap="round"/>
+      <g fill="none" stroke="url(#gp)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path class="draw d2" pathLength="1" d="M14 34.5C18.5 35 21.5 36.5 24.5 39.5C27 42 30 43 33.5 42.5L45 40.5C47.6 40 49.6 41.6 48.4 43.6C47.6 44.9 46.2 45.4 44.6 45.8L35 48.4C30 49.7 24.5 49 19.5 46.8L14 44.5"/>
+        <path class="draw d2" pathLength="1" d="M33.5 42.5L40.5 41.2"/>
+        <path class="draw d2" pathLength="1" d="M24.5 39.5C26 36 26.4 33 25.6 30.2C25 28.2 26.2 26.8 27.8 27.4C29.6 28.1 30.6 30.6 31 33.4"/>
+      </g>
+      <path class="star" d="M36.5 18.5c-1.6-2.8-6-2.2-6 1.4 0 3.2 4 5.6 6 7.6 2-2 6-4.4 6-7.6 0-3.6-4.4-4.2-6-1.4z" fill="url(#gg)"/>
+      <path class="star" d="M51.8 9.4l.9 1.9 2.1.3-1.5 1.5.4 2.1-1.9-1-1.9 1 .4-2.1-1.5-1.5 2.1-.3z" fill="url(#gg)"/>
+    </svg>
+    <div class="bar"><i></i></div>
+    <div class="num" id="lnum">000</div>
+  </div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="MedExpert Turkey">
+      <svg><use href="#mark"/></svg>
+      <span class="wordmark"><b>MEDEXPERT</b><span>TURKEY</span></span>
+    </a>
+    <nav class="links" aria-label="Menu">
+      <a href="#services" data-t="nav.services">Направления</a>
+      <a href="#dental" data-t="nav.dental">Стоматология</a>
+      <a href="#journey" data-t="nav.journey">Как мы работаем</a>
+      <a href="#concierge" data-t="nav.concierge">Сервис</a>
+      <a href="#faq" data-t="nav.faq">Вопросы</a>
+    </nav>
+    <div class="navr">
+      <div class="lang" id="lang">
+        <button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false"><span id="langCur">RU</span><svg viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></button>
+        <ul class="lang-menu" id="langMenu"></ul>
+      </div>
+      <a href="#contact" class="btn mag"><span data-t="nav.cta">Консультация</span> <span class="arr">→</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow" data-t="hero.eyebrow">Private medical concierge · Анталья · Стамбул</div>
+        <h1>
+          <span class="ln"><span style="--d:0" data-t="hero.l1">Ваше лечение</span></span>
+          <span class="ln"><span style="--d:1" data-t="hero.l2">в Турции</span></span>
+          <span class="ln"><span style="--d:2" class="shine" data-t="hero.l3">под нашей заботой</span></span>
+        </h1>
+        <p class="lede" data-t="hero.lede">Подбираем аккредитованную клинику и врача под вашу задачу, организуем поездку класса люкс и остаёмся рядом до полного восстановления.</p>
+        <div class="cta">
+          <a href="#contact" class="btn mag"><span data-t="hero.cta1">Получить план лечения</span> <span class="arr">→</span></a>
+          <a href="#services" class="btn ghost mag" data-t="hero.cta2">Направления</a>
+        </div>
+      </div>
+      <div class="phone-stage">
+        <div class="phone-glow" aria-hidden="true"></div>
+        <div class="phone" id="phone" data-video="media/hero.mp4">
+          <span class="ph-btn ph-act"></span><span class="ph-btn ph-v1"></span><span class="ph-btn ph-v2"></span><span class="ph-btn ph-pwr"></span><span class="ph-btn ph-cam"></span>
+          <div class="screen">
+            <video id="heroVideo" muted autoplay loop playsinline preload="auto" poster="media/hero-poster.jpg" aria-label="MedExpert"></video>
+            <div class="ph-placeholder" id="phPlaceholder">
+              <svg viewBox="0 0 64 64"><use href="#mark"/></svg>
+              <b>MEDEXPERT</b><span>TURKEY</span>
+            </div>
+            <div class="island"></div>
+            <div class="glare"></div>
+          </div>
+        </div>
+        <button type="button" class="snd" id="sndBtn" aria-pressed="false">
+          <span class="snd-ic" aria-hidden="true">
+            <svg class="ic-off" viewBox="0 0 24 24"><path d="M4 9h3l5-4v14l-5-4H4z"/><path d="M16 9l5 6M21 9l-5 6"/></svg>
+            <span class="eq"><i></i><i></i><i></i><i></i></span>
+          </span>
+          <span id="sndLbl">Включить звук</span>
+        </button>
+      </div>
+      </div>
+      <div class="facts">
+        <div><b><span class="count" data-to="24">24</span>/7</b><span data-t="f.1">личный врач-куратор на связи</span></div>
+        <div><b><span class="count" data-to="48">48</span><small data-t="f.2u">Ч</small></b><span data-t="f.2">до готового плана лечения</span></div>
+        <div><b><span class="count" data-to="12">12</span><small data-t="f.3u">МЕС</small></b><span data-t="f.3">наблюдения после поездки</span></div>
+        <div><b>VIP</b><span data-t="f.4">трансфер, отель, переводчик</span></div>
+      </div>
+    </div>
+    <div class="scrollcue" aria-hidden="true">SCROLL <i></i></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="mrow" id="m1"><span data-t="s1.t">Пересадка волос</span><span data-t="s2.t">Стоматология</span><span data-t="s3.t">Пластическая хирургия</span><span data-t="s4.t">Check-up</span><span data-t="s7.t">Онкология</span><span data-t="s8.t">Кардиология</span><span data-t="s9.t">Ортопедия</span><span data-t="s10.t">ЭКО и репродукция</span><span data-t="s5.t">Офтальмология</span><span data-t="s6.t">Бариатрия</span></div>
+    <div class="mrow outline" id="m2"><span>Antalya</span><span>Istanbul</span><span>JCI Accredited</span><span>VIP Transfer</span><span>Recovery by the sea</span><span>24/7 Concierge</span></div>
+  </div>
+
+  <section class="hs" id="services">
+    <div class="hs-pin">
+      <div class="wrap hs-top">
+        <div><div class="eyebrow" data-t="svc.eyebrow">Направления</div><h2 class="split" data-t="svc.h2">Двенадцать направлений, где Турция <em class="shine">задаёт стандарт</em></h2></div>
+        <div class="hs-count"><b id="hsn">01</b> / <span id="hst">12</span></div>
+      </div>
+      <div class="track" id="track">
+        <article class="card"><div class="vis v1 has-vid">
+          <video src="media/hair.mp4" poster="media/hair-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s1.t">Пересадка волос</h3><p data-t="s1.d">Естественная линия роста и густота без следов на коже головы.</p><div class="tags"><i>FUE</i><i>DHI</i><i>Sapphire</i><i data-t="tag.grafts">до 5 000 графтов</i></div></div></article>
+        <article class="card"><div class="vis v2 has-vid">
+          <video src="media/dental.mp4" poster="media/dental-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s2.t">Стоматология</h3><p data-t="s2.d">Голливудская улыбка и имплантация за одну-две поездки.</p><div class="tags"><i data-t="tag.veneers">Виниры E.max</i><i data-t="tag.zircon">Циркон</i><i>All-on-4</i></div></div></article>
+        <article class="card"><div class="vis v3 has-vid">
+          <video src="media/plastic.mp4" poster="media/plastic-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s3.t">Пластическая хирургия</h3><p data-t="s3.d">Деликатные изменения, которые выглядят естественно.</p><div class="tags"><i data-t="tag.rhino">Ринопластика</i><i data-t="tag.mammo">Маммопластика</i><i data-t="tag.bleph">Блефаропластика</i></div></div></article>
+        <article class="card"><div class="vis v4 has-vid">
+          <video src="media/checkup.mp4" poster="media/checkup-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s4.t">Check-up</h3><p data-t="s4.d">Полное обследование за один-два дня с заключением на вашем языке.</p><div class="tags"><i data-t="tag.mri">МРТ / КТ</i><i data-t="tag.cardio">Кардиология</i><i data-t="tag.oncoscreen">Онкоскрининг</i></div></div></article>
+        <article class="card"><div class="vis v5 has-vid">
+          <video src="media/eye.mp4" poster="media/eye-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s5.t">Офтальмология</h3><p data-t="s5.d">Лазерная коррекция зрения и премиальные линзы.</p><div class="tags"><i>LASIK</i><i>SMILE</i><i>Trifocal</i></div></div></article>
+        <article class="card"><div class="vis v6 has-vid">
+          <video src="media/bariatric.mp4" poster="media/bariatric-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s6.t">Бариатрия</h3><p data-t="s6.d">Снижение веса с программой питания и наблюдением.</p><div class="tags"><i>Sleeve</i><i>Bypass</i><i data-t="tag.balloon">Баллон</i></div></div></article>
+        <article class="card"><div class="vis v7 has-vid">
+          <video src="media/onco.mp4" poster="media/onco-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s7.t">Онкология</h3><p data-t="s7.d">Диагностика, второе мнение и лечение в ведущих онкоцентрах.</p><div class="tags"><i>PET-CT</i><i>Da Vinci</i><i>CyberKnife</i></div></div></article>
+        <article class="card"><div class="vis v8 has-vid">
+          <video src="media/cardio.mp4" poster="media/cardio-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s8.t">Кардиология</h3><p data-t="s8.d">Обследование и операции на сердце, включая малоинвазивные.</p><div class="tags"><i data-t="tag.bypass">Шунтирование</i><i data-t="tag.stent">Стентирование</i><i data-t="tag.valves">Клапаны</i></div></div></article>
+        <article class="card"><div class="vis v9 has-vid">
+          <video src="media/ortho.mp4" poster="media/ortho-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s9.t">Ортопедия</h3><p data-t="s9.d">Замена суставов и спортивная травматология с быстрой реабилитацией.</p><div class="tags"><i data-t="tag.knee">Эндопротез колена</i><i data-t="tag.hip">Тазобедренный сустав</i><i data-t="tag.arthro">Артроскопия</i></div></div></article>
+        <article class="card"><div class="vis v10 has-vid">
+          <video src="media/ivf.mp4" poster="media/ivf-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s10.t">ЭКО и репродукция</h3><p data-t="s10.d">Программы ЭКО с современными лабораториями и деликатным сопровождением.</p><div class="tags"><i data-t="tag.ivf">ЭКО / ИКСИ</i><i>PGT</i><i data-t="tag.cryo">Криоконсервация</i></div></div></article>
+        <article class="card"><div class="vis v11 has-vid">
+          <video src="media/neuro.mp4" poster="media/neuro-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s11.t">Нейрохирургия</h3><p data-t="s11.d">Операции на позвоночнике и головном мозге с навигацией.</p><div class="tags"><i data-t="tag.disc">Грыжа диска</i><i data-t="tag.neuronav">Нейронавигация</i><i data-t="tag.endo">Эндоскопия</i></div></div></article>
+        <article class="card"><div class="vis v12 has-vid">
+          <video src="media/cosmo.mp4" poster="media/cosmo-poster.jpg" muted playsinline preload="metadata"></video>
+          <button type="button" class="vplay" aria-pressed="false" aria-label="Play">
+            <span class="vp-ic" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+          </button>
+        </div>
+          <div class="body"><h3 data-t="s12.t">Косметология</h3><p data-t="s12.d">Anti-age процедуры и аппаратная косметология без операций.</p><div class="tags"><i data-t="tag.botox">Ботокс</i><i data-t="tag.fillers">Филлеры</i><i>Ultherapy</i><i>PRP</i></div></div></article>
+      </div>
+      <div class="wrap"><div class="hs-bar"><i id="hsbar"></i></div></div>
+    </div>
+  </section>
+
+  <section class="sec dent" id="dental">
+    <div class="wrap dent-grid">
+      <div class="dent-side">
+        <div class="eyebrow" data-t="nav.dental">Стоматология</div>
+        <h2 class="split" data-t="d.h2">Улыбка, ради которой <em class="shine">летят в Турцию</em></h2>
+        <p class="rv" data-t="d.p">Стоматология — самое популярное направление у наших пациентов. Подбираем клинику с собственной зуботехнической лабораторией, поэтому большую часть работ можно сделать за одну поездку.</p>
+        <div class="tooth rv" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <path class="t-glow" d="M30 12C18 12 12 22 14 36c2 12 6 20 8 34 2 14 6 22 11 22 6 0 7-12 9-22 1-6 4-10 8-10s7 4 8 10c2 10 3 22 9 22 5 0 9-8 11-22 2-14 6-22 8-34 2-14-4-24-16-24-8 0-13 4-20 4s-12-4-20-4z"/>
+            <path class="t-out" pathLength="1" d="M30 12C18 12 12 22 14 36c2 12 6 20 8 34 2 14 6 22 11 22 6 0 7-12 9-22 1-6 4-10 8-10s7 4 8 10c2 10 3 22 9 22 5 0 9-8 11-22 2-14 6-22 8-34 2-14-4-24-16-24-8 0-13 4-20 4s-12-4-20-4z"/>
+            <path class="t-spark" style="transform-origin:76px 22px" d="M76 16l1.5 4.5L82 22l-4.5 1.5L76 28l-1.5-4.5L70 22l4.5-1.5z"/>
+            <path class="t-spark" style="transform-origin:28px 30px;animation-delay:.8s" d="M28 26l1 3 3 1-3 1-1 3-1-3-3-1 3-1z"/>
+            <path class="t-spark" style="transform-origin:90px 50px;animation-delay:1.6s" d="M90 47l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/>
+          </svg>
+        </div>
+        <div><a href="#contact" class="btn mag"><span data-t="d.btn">Рассчитать стоимость</span> <span class="arr">→</span></a></div>
+      </div>
+      <ul class="treat">
+        <li class="rv"><h3 data-t="t1.t">Виниры E.max</h3><p data-t="t1.d">Тонкие керамические накладки для идеальной формы и цвета зубов.</p><div class="meta"><span data-t="m.57">5–7 дней</span><span data-t="m.1trip">1 поездка</span></div></li>
+        <li class="rv"><h3 data-t="t2.t">Голливудская улыбка</h3><p data-t="t2.d">Комплексная эстетика: дизайн улыбки, виниры или коронки на всю линию.</p><div class="meta"><span data-t="m.710">7–10 дней</span><span>Digital Smile Design</span></div></li>
+        <li class="rv"><h3 data-t="t3.t">Циркониевые коронки</h3><p data-t="t3.d">Прочные и естественные коронки без металла.</p><div class="meta"><span data-t="m.57">5–7 дней</span><span data-t="m.1trip">1 поездка</span></div></li>
+        <li class="rv"><h3 data-t="t4.t">Имплантация</h3><p data-t="t4.d">Импланты премиальных систем с гарантией производителя.</p><div class="meta"><span data-t="m.2trips">2 поездки</span><span>Straumann · Nobel</span></div></li>
+        <li class="rv"><h3>All-on-4 / All-on-6</h3><p data-t="t5.d">Полное восстановление челюсти на 4–6 имплантах с временными зубами сразу.</p><div class="meta"><span data-t="m.2trips">2 поездки</span><span data-t="m.3days">зубы за 3 дня</span></div></li>
+        <li class="rv"><h3 data-t="t6.t">Отбеливание</h3><p data-t="t6.d">Профессиональное отбеливание на несколько тонов за один визит.</p><div class="meta"><span data-t="m.1day">1 день</span><span>Zoom · Beyond</span></div></li>
+        <li class="rv"><h3 data-t="t7.t">Элайнеры и брекеты</h3><p data-t="t7.d">Выравнивание зубов прозрачными капами или эстетичными брекетами.</p><div class="meta"><span data-t="m.plan">план за 1 визит</span><span>Invisalign</span></div></li>
+        <li class="rv"><h3 data-t="t8.t">Лечение во сне</h3><p data-t="t8.d">Седация для тех, кто боится стоматолога, под контролем анестезиолога.</p><div class="meta"><span data-t="m.nostress">без стресса</span><span data-t="m.sedation">седация</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec team" id="team">
+    <div class="wrap team-grid">
+      <div class="team-side">
+        <div class="eyebrow" data-t="tm.eyebrow">Наша команда</div>
+        <h2 class="split" data-t="tm.h2">Врачи, которые <em class="shine">ведут вас лично</em></h2>
+        <p class="rv" data-t="tm.p">В команде MedExpert работают врачи всех направлений с высшим медицинским образованием. Именно они изучают ваш случай, подбирают клинику и хирурга и сопровождают вас на всех этапах лечения.</p>
+        <div class="team-num rv"><b>12</b><span data-t="tm.num">направлений, и по каждому в команде есть свой врач</span></div>
+      </div>
+      <ul class="pts">
+        <li class="rv"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/><path d="M12 14v4M10 16h4"/></svg></span><div><h3 data-t="tm.1t">Врач вашего профиля</h3><p data-t="tm.1d">Ваш случай ведёт специалист нужного направления: стоматолог, хирург, кардиолог, онколог и другие.</p></div></li>
+        <li class="rv"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/><path d="M8 10.5l2 2 3.5-4"/></svg></span><div><h3 data-t="tm.2t">Выбор клиники глазами врача</h3><p data-t="tm.2d">Мы оцениваем квалификацию хирургов, оборудование и протоколы лечения так, как это делает врач, а не турагент.</p></div></li>
+        <li class="rv"><span class="pi"><svg viewBox="0 0 24 24"><path d="M4 13c2 0 3 1 4.5 2.5S11 17 13 17l5-1c1-.2 1.6.8 1 1.5-.6.7-1.5 1-2.5 1.3L12 20c-2.5.6-5 .2-8-1"/><path d="M13 9.5c-.8-1.4-3-1.1-3 .7 0 1.6 2 2.8 3 3.8 1-1 3-2.2 3-3.8 0-1.8-2.2-2.1-3-.7z"/></svg></span><div><h3 data-t="tm.3t">Рядом на всех этапах</h3><p data-t="tm.3d">Врач-куратор объясняет план лечения, на связи в ключевые дни и контролирует восстановление после возвращения домой.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec journey" id="journey">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow" data-t="j.eyebrow">Путь пациента</div><h2 class="split" data-t="j.h2">От заявки <em class="shine">до результата</em></h2></div>
+        <p class="rv" data-t="j.p">Каждый этап ведёт ваш врач-куратор. Вы всегда знаете, что будет дальше, сколько это стоит и кто за это отвечает.</p>
+      </div>
+      <div class="steps" id="steps">
+        <div class="prog" id="prog"></div>
+        <div class="step rv"><div class="n">1</div><h3 data-t="st1.t">Заявка и фото</h3><p data-t="st1.d">Расскажите о задаче и пришлите снимки или анализы.</p><small data-t="st1.s">в день обращения</small></div>
+        <div class="step rv"><div class="n">2</div><h3 data-t="st2.t">План лечения</h3><p data-t="st2.d">Врач клиники проводит онлайн-консультацию и даёт план с фиксированной ценой.</p><small data-t="st2.s">24–48 часов</small></div>
+        <div class="step rv"><div class="n">3</div><h3 data-t="st3.t">Поездка</h3><p data-t="st3.d">Бронируем перелёт, отель и встречаем в аэропорту на VIP-трансфере.</p><small data-t="st3.s">под ваши даты</small></div>
+        <div class="step rv"><div class="n">4</div><h3 data-t="st4.t">Процедура</h3><p data-t="st4.d">Координатор и переводчик рядом на каждом приёме и в день операции.</p><small data-t="st4.s">1–7 дней</small></div>
+        <div class="step rv"><div class="n">5</div><h3 data-t="st5.t">Восстановление</h3><p data-t="st5.d">Контроль результата онлайн после возвращения домой.</p><small data-t="st5.s">до 12 месяцев</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="concierge">
+    <div class="wrap duo">
+      <div class="cvid-wrap">
+        <div class="cvid rv" data-speed="-0.05">
+          <video src="media/concierge.mp4" poster="media/concierge-poster.jpg" muted autoplay loop playsinline preload="metadata" aria-hidden="true"></video>
+          <div class="cbadge"><b>1</b><span data-t="c.orb">врач-куратор на всё</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" data-t="c.eyebrow">Что входит</div>
+        <h2 class="split" style="margin-top:20px" data-t="c.h2">Вы занимаетесь <em class="shine">собой</em>. Остальное на нас</h2>
+        <ul class="incl rv">
+          <li><b data-t="i1.b">Подбор клиники и врача</b><span data-t="i1.s">сравнение 2–3 вариантов</span></li>
+          <li><b data-t="i2.b">Онлайн-консультация</b><span data-t="i2.s">до покупки билетов</span></li>
+          <li><b data-t="i3.b">Встреча в аэропорту</b><span>Mercedes VIP</span></li>
+          <li><b data-t="i4.b">Отель рядом с клиникой</b><span>4–5★</span></li>
+          <li><b data-t="i5.b">Переводчик</b><span data-t="i5.s">на всех приёмах</span></li>
+          <li><b data-t="i6.b">Наблюдение после</b><span data-t="i6.s">фото-контроль онлайн</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="band">
+    <div class="band-in" id="bandIn">
+      <div class="wrap">
+        <blockquote data-t="band.q">Лучший врач для вас не тот, у кого громче реклама, а тот, кто <em>лучше всех решает именно вашу задачу.</em></blockquote>
+        <div class="eyebrow" data-t="band.sig">Принцип MedExpert</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap faq">
+      <div>
+        <div class="eyebrow" data-t="nav.faq">Вопросы</div>
+        <h2 class="split" style="margin-top:20px" data-t="faq.h2">Что важно <em class="shine">знать заранее</em></h2>
+      </div>
+      <div class="rv">
+        <details open><summary><span data-t="q1">Сколько стоит лечение?</span><span class="pl"></span></summary><div class="ans" data-t="a1">Цена зависит от объёма и клиники. После онлайн-консультации вы получаете план с фиксированной стоимостью, в которой уже учтены трансфер, проживание и переводчик.</div></details>
+        <details><summary><span data-t="q2">Как вы выбираете клиники?</span><span class="pl"></span></summary><div class="ans" data-t="a2">Мы проверяем лицензии Минздрава Турции, международную аккредитацию, опыт хирургов и результаты прошлых пациентов. С клиниками, которые не проходят проверку, не работаем.</div></details>
+        <details><summary><span data-t="q3">Сколько дней нужно провести в Турции?</span><span class="pl"></span></summary><div class="ans" data-t="a3">Пересадка волос и check-up занимают 2–3 дня, виниры около 5–7 дней, пластические операции 7–10 дней. Точный срок врач назовёт в плане лечения.</div></details>
+        <details><summary><span data-t="q4">Что, если после возвращения появятся вопросы?</span><span class="pl"></span></summary><div class="ans" data-t="a4">Координатор остаётся на связи. Вы присылаете фото, врач даёт рекомендации онлайн, а при необходимости мы организуем повторный визит.</div></details>
+        <details><summary><span data-t="q5">Можно ли совместить лечение с отдыхом?</span><span class="pl"></span></summary><div class="ans" data-t="a5">Да. Анталья находится на побережье Средиземного моря, и мы подберём отель так, чтобы восстановление прошло спокойно, если это позволяют рекомендации врача.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contact">
+    <div class="wrap c-grid">
+      <div>
+        <div class="eyebrow" data-t="nav.cta">Консультация</div>
+        <h2 class="split" style="margin-top:20px" data-t="ct.h2">Начнём с <em class="shine">разговора</em></h2>
+        <p class="rv" style="color:var(--mist);margin-top:24px;max-width:42ch" data-t="ct.p">Оставьте заявку, и координатор свяжется с вами в удобном мессенджере, чтобы обсудить задачу и подготовить план.</p>
+        <div class="social rv">
+          <a href="https://www.instagram.com/medexpert.turkey" target="_blank" rel="noopener">Instagram <small>@medexpert.turkey ↗</small></a>
+          <a href="https://www.facebook.com/share/19pc3UeTuL/" target="_blank" rel="noopener">Facebook <small>MedExpert Turkey ↗</small></a>
+        </div>
+      </div>
+      <div class="glass rv">
+        <form id="form" novalidate>
+          <div class="two">
+            <div class="field"><input id="f-name" type="text" placeholder=" " autocomplete="name"><label for="f-name" data-t="fm.name">Ваше имя</label></div>
+            <div class="field"><input id="f-phone" type="tel" placeholder=" " autocomplete="tel" dir="ltr"><label for="f-phone">WhatsApp / Telegram</label></div>
+          </div>
+          <div class="field sel">
+            <select id="f-dir">
+              <option data-t="s2.t">Стоматология</option><option data-t="s1.t">Пересадка волос</option><option data-t="s3.t">Пластическая хирургия</option><option data-t="s4.t">Check-up</option><option data-t="s5.t">Офтальмология</option><option data-t="s6.t">Бариатрия</option><option data-t="s7.t">Онкология</option><option data-t="s8.t">Кардиология</option><option data-t="s9.t">Ортопедия</option><option data-t="s10.t">ЭКО и репродукция</option><option data-t="s11.t">Нейрохирургия</option><option data-t="s12.t">Косметология</option><option data-t="fm.other">Другое</option>
+            </select>
+            <label for="f-dir" data-t="fm.dir">Направление</label>
+          </div>
+          <div class="field"><textarea id="f-msg" placeholder=" "></textarea><label for="f-msg" data-t="fm.msg">Коротко о задаче</label></div>
+          <div><button type="submit" class="btn mag"><span data-t="fm.send">Отправить заявку</span> <span class="arr">→</span></button></div>
+          <p class="form-note" data-t="fm.note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+          <div id="ok" class="ok" hidden></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="giant" aria-hidden="true">MedExpert</div>
+  <div class="wrap">
+    <a href="#top" class="brand"><svg style="width:30px;height:30px"><use href="#mark"/></svg><span class="wordmark"><b style="font-size:15px">MEDEXPERT</b><span>TURKEY</span></span></a>
+    <span data-t="foot">© 2026 MedExpert Turkey · Медицинский консьерж в Турции</span>
+  </div>
+</footer>
+
+<script>
+/* All translations live here. Russian comes from the page itself; add every new key to all six languages below. */
+const LANGS=[["ru","Русский"],["en","English"],["de","Deutsch"],["tr","Türkçe"],["ar","العربية"],["es","Español"],["it","Italiano"]];
+const T={
+ru:{
+"snd.on":"Включить звук","snd.off":"Выключить звук",
+"msg.err":"Укажите имя и номер WhatsApp или Telegram, чтобы координатор мог с вами связаться.",
+"msg.ok":"Спасибо, {name}! Заявка по направлению «{dir}» заполнена. Это демо-версия формы: отправку в WhatsApp или CRM подключим при запуске сайта на домене."
+},
+en:{
+"snd.on":"Sound on","snd.off":"Sound off",
+"nav.services":"Treatments","nav.dental":"Dentistry","nav.journey":"How it works","nav.concierge":"Service","nav.faq":"FAQ","nav.cta":"Consultation",
+"hero.eyebrow":"Private medical concierge · Antalya · Istanbul","hero.l1":"Your treatment","hero.l2":"in Türkiye","hero.l3":"in our care",
+"hero.lede":"We match you with an accredited clinic and the right doctor for your case, arrange a first-class trip and stay by your side until you have fully recovered.",
+"hero.cta1":"Get your treatment plan","hero.cta2":"Treatments",
+"f.1":"personal supervising doctor on call","f.2u":"H","f.2":"to a ready treatment plan","f.3u":"MO","f.3":"of follow-up after your trip","f.4":"transfer, hotel, interpreter",
+"svc.eyebrow":"Treatments","svc.h2":"Twelve specialties where Türkiye <em class=\"shine\">sets the standard</em>",
+"s1.t":"Hair transplant","s1.d":"A natural hairline and real density with no visible scarring.","tag.grafts":"up to 5,000 grafts",
+"s2.t":"Dentistry","s2.d":"A Hollywood smile and implants in one or two trips.","tag.veneers":"E.max veneers","tag.zircon":"Zirconia",
+"s3.t":"Plastic surgery","s3.d":"Refined changes that look natural.","tag.rhino":"Rhinoplasty","tag.mammo":"Breast surgery","tag.bleph":"Blepharoplasty",
+"s4.t":"Check-up","s4.d":"A full health screening in one or two days, with a report in your language.","tag.mri":"MRI / CT","tag.cardio":"Cardiology","tag.oncoscreen":"Cancer screening",
+"s5.t":"Ophthalmology","s5.d":"Laser vision correction and premium lenses.",
+"s6.t":"Bariatric surgery","s6.d":"Weight-loss surgery with a nutrition plan and follow-up.","tag.balloon":"Gastric balloon",
+"s7.t":"Oncology","s7.d":"Diagnostics, second opinions and treatment at leading cancer centres.",
+"s8.t":"Cardiology","s8.d":"Heart check-ups and surgery, including minimally invasive procedures.","tag.bypass":"Bypass","tag.stent":"Stenting","tag.valves":"Valves",
+"s9.t":"Orthopaedics","s9.d":"Joint replacement and sports medicine with fast rehabilitation.","tag.knee":"Knee replacement","tag.hip":"Hip replacement","tag.arthro":"Arthroscopy",
+"s10.t":"IVF & fertility","s10.d":"IVF programmes with modern labs and discreet support.","tag.ivf":"IVF / ICSI","tag.cryo":"Cryopreservation",
+"s11.t":"Neurosurgery","s11.d":"Spine and brain surgery with navigation.","tag.disc":"Disc herniation","tag.neuronav":"Neuronavigation","tag.endo":"Endoscopy",
+"s12.t":"Aesthetic medicine","s12.d":"Anti-ageing and non-surgical aesthetic treatments.","tag.botox":"Botox","tag.fillers":"Fillers",
+"d.h2":"The smile people <em class=\"shine\">fly to Türkiye for</em>",
+"d.p":"Dentistry is our patients' most popular choice. We select clinics with their own dental lab, so most work can be finished in a single trip.",
+"d.btn":"Get a price estimate",
+"t1.t":"E.max veneers","t1.d":"Thin ceramic veneers for the ideal shape and colour.","m.57":"5–7 days","m.1trip":"1 trip",
+"t2.t":"Hollywood smile","t2.d":"A complete smile makeover: design, veneers or crowns across the full arch.","m.710":"7–10 days",
+"t3.t":"Zirconia crowns","t3.d":"Strong, natural-looking metal-free crowns.",
+"t4.t":"Dental implants","t4.d":"Premium implant systems with a manufacturer's warranty.","m.2trips":"2 trips",
+"t5.d":"A full arch on 4–6 implants with temporary teeth right away.","m.3days":"teeth in 3 days",
+"t6.t":"Teeth whitening","t6.d":"Professional whitening by several shades in one visit.","m.1day":"1 day",
+"t7.t":"Aligners & braces","t7.d":"Straighter teeth with clear aligners or aesthetic braces.","m.plan":"plan in 1 visit",
+"t8.t":"Sleep dentistry","t8.d":"Sedation for anxious patients, supervised by an anaesthetist.","m.nostress":"stress-free","m.sedation":"sedation",
+"j.eyebrow":"Patient journey","j.h2":"From first message <em class=\"shine\">to results</em>","j.p":"Your supervising doctor guides every step. You always know what comes next, what it costs and who is responsible.",
+"st1.t":"Request & photos","st1.d":"Tell us about your case and send photos or test results.","st1.s":"same day",
+"st2.t":"Treatment plan","st2.d":"A clinic doctor consults you online and gives you a plan with a fixed price.","st2.s":"24–48 hours",
+"st3.t":"Travel","st3.d":"We book flights and hotel and meet you at the airport with a VIP transfer.","st3.s":"on your dates",
+"st4.t":"Procedure","st4.d":"Your coordinator and interpreter are with you at every appointment and on surgery day.","st4.s":"1–7 days",
+"st5.t":"Recovery","st5.d":"Online follow-up of your results after you return home.","st5.s":"up to 12 months",
+"c.eyebrow":"What's included","c.orb":"supervising doctor for everything","c.h2":"You focus on <em class=\"shine\">yourself</em>. We handle the rest",
+"i1.b":"Clinic and doctor selection","i1.s":"2–3 options compared","i2.b":"Online consultation","i2.s":"before you book flights","i3.b":"Airport pick-up","i4.b":"Hotel near the clinic","i5.b":"Interpreter","i5.s":"at every appointment","i6.b":"Aftercare","i6.s":"online photo check-ins",
+"band.q":"The best doctor for you isn't the one with the loudest advertising, but the one who <em>solves your specific problem best.</em>","band.sig":"The MedExpert principle",
+"faq.h2":"What to know <em class=\"shine\">before you go</em>",
+"q1":"How much does treatment cost?","a1":"The price depends on the scope and the clinic. After the online consultation you receive a plan with a fixed price that already includes transfer, accommodation and an interpreter.",
+"q2":"How do you choose clinics?","a2":"We check Turkish Ministry of Health licences, international accreditation, surgeons' experience and past patients' results. We do not work with clinics that fail our review.",
+"q3":"How many days do I need to stay in Türkiye?","a3":"Hair transplants and check-ups take 2–3 days, veneers about 5–7 days, plastic surgery 7–10 days. The doctor will give the exact time in your treatment plan.",
+"q4":"What if I have questions after returning home?","a4":"Your coordinator stays in touch. You send photos, the doctor advises online and, if needed, we arrange a follow-up visit.",
+"q5":"Can I combine treatment with a holiday?","a5":"Yes. Antalya is on the Mediterranean coast, and we choose a hotel where you can recover calmly, if your doctor's advice allows.",
+"ct.h2":"Let's start with <em class=\"shine\">a conversation</em>","ct.p":"Leave a request and a coordinator will contact you on your preferred messenger to discuss your case and prepare a plan.",
+"fm.name":"Your name","fm.dir":"Treatment","fm.msg":"Briefly about your case","fm.other":"Other","fm.send":"Send request","fm.note":"By clicking the button, you agree to the processing of your personal data.",
+"msg.err":"Please enter your name and WhatsApp or Telegram number so a coordinator can contact you.",
+"msg.ok":"Thank you, {name}! Your request for “{dir}” is ready. This is a demo form: sending to WhatsApp or a CRM will be connected when the site goes live on its domain.",
+"tm.eyebrow":"Our team",
+"tm.h2":"Doctors who <em class=\"shine\">guide you personally</em>",
+"tm.p":"The MedExpert team is made up of doctors from every specialty, all with a university medical degree. They are the ones who review your case, choose the clinic and surgeon, and stay with you through every stage of treatment.",
+"tm.num":"specialties, each with its own doctor on our team",
+"tm.1t":"A doctor in your specialty",
+"tm.1d":"Your case is led by a specialist in the right field: a dentist, surgeon, cardiologist, oncologist and more.",
+"tm.2t":"Clinic choice through a doctor's eyes",
+"tm.2d":"We assess surgeons' qualifications, equipment and treatment protocols the way a doctor would, not a travel agent.",
+"tm.3t":"By your side at every stage",
+"tm.3d":"Your supervising doctor explains the treatment plan, is on hand on key days and monitors your recovery after you return home.",
+"foot":"© 2026 MedExpert Turkey · Medical concierge in Türkiye"
+},
+de:{
+"snd.on":"Ton an","snd.off":"Ton aus",
+"nav.services":"Fachbereiche","nav.dental":"Zahnmedizin","nav.journey":"So funktioniert's","nav.concierge":"Service","nav.faq":"FAQ","nav.cta":"Beratung",
+"hero.eyebrow":"Private medical concierge · Antalya · Istanbul","hero.l1":"Ihre Behandlung","hero.l2":"in der Türkei","hero.l3":"in unserer Obhut",
+"hero.lede":"Wir finden für Sie eine akkreditierte Klinik und den passenden Arzt, organisieren eine erstklassige Reise und bleiben an Ihrer Seite bis zur vollständigen Genesung.",
+"hero.cta1":"Behandlungsplan erhalten","hero.cta2":"Fachbereiche",
+"f.1":"persönlicher betreuender Arzt erreichbar","f.2u":"STD","f.2":"bis zum fertigen Behandlungsplan","f.3u":"MON","f.3":"Nachbetreuung nach der Reise","f.4":"Transfer, Hotel, Dolmetscher",
+"svc.eyebrow":"Fachbereiche","svc.h2":"Zwölf Fachbereiche, in denen die Türkei <em class=\"shine\">Maßstäbe setzt</em>",
+"s1.t":"Haartransplantation","s1.d":"Natürlicher Haaransatz und volle Dichte ohne sichtbare Narben.","tag.grafts":"bis zu 5.000 Grafts",
+"s2.t":"Zahnmedizin","s2.d":"Hollywood-Lächeln und Implantate in ein bis zwei Reisen.","tag.veneers":"E.max-Veneers","tag.zircon":"Zirkon",
+"s3.t":"Plastische Chirurgie","s3.d":"Feine Veränderungen, die natürlich wirken.","tag.rhino":"Nasenkorrektur","tag.mammo":"Brustchirurgie","tag.bleph":"Lidstraffung",
+"s4.t":"Check-up","s4.d":"Komplette Vorsorgeuntersuchung in ein bis zwei Tagen, mit Befund in Ihrer Sprache.","tag.mri":"MRT / CT","tag.cardio":"Kardiologie","tag.oncoscreen":"Krebsvorsorge",
+"s5.t":"Augenheilkunde","s5.d":"Laser-Sehkorrektur und Premium-Linsen.",
+"s6.t":"Adipositaschirurgie","s6.d":"Gewichtsreduktion mit Ernährungsplan und Nachsorge.","tag.balloon":"Magenballon",
+"s7.t":"Onkologie","s7.d":"Diagnostik, Zweitmeinung und Behandlung in führenden Krebszentren.",
+"s8.t":"Kardiologie","s8.d":"Herzuntersuchungen und Herzoperationen, auch minimalinvasiv.","tag.bypass":"Bypass","tag.stent":"Stent","tag.valves":"Herzklappen",
+"s9.t":"Orthopädie","s9.d":"Gelenkersatz und Sportmedizin mit schneller Rehabilitation.","tag.knee":"Knieprothese","tag.hip":"Hüftprothese","tag.arthro":"Arthroskopie",
+"s10.t":"IVF & Kinderwunsch","s10.d":"IVF-Programme mit modernen Laboren und diskreter Begleitung.","tag.ivf":"IVF / ICSI","tag.cryo":"Kryokonservierung",
+"s11.t":"Neurochirurgie","s11.d":"Wirbelsäulen- und Gehirnoperationen mit Navigation.","tag.disc":"Bandscheibenvorfall","tag.neuronav":"Neuronavigation","tag.endo":"Endoskopie",
+"s12.t":"Ästhetische Medizin","s12.d":"Anti-Aging und ästhetische Behandlungen ohne Operation.","tag.botox":"Botox","tag.fillers":"Filler",
+"d.h2":"Das Lächeln, für das man <em class=\"shine\">in die Türkei fliegt</em>",
+"d.p":"Zahnmedizin ist der beliebteste Bereich unserer Patienten. Wir wählen Kliniken mit eigenem Zahnlabor, damit die meisten Arbeiten in einer Reise erledigt sind.",
+"d.btn":"Kosten berechnen",
+"t1.t":"E.max-Veneers","t1.d":"Dünne Keramikschalen für ideale Form und Farbe.","m.57":"5–7 Tage","m.1trip":"1 Reise",
+"t2.t":"Hollywood-Lächeln","t2.d":"Komplette Ästhetik: Smile Design, Veneers oder Kronen für die ganze Zahnreihe.","m.710":"7–10 Tage",
+"t3.t":"Zirkonkronen","t3.d":"Stabile, natürlich wirkende Kronen ohne Metall.",
+"t4.t":"Implantate","t4.d":"Premium-Implantatsysteme mit Herstellergarantie.","m.2trips":"2 Reisen",
+"t5.d":"Ein kompletter Kiefer auf 4–6 Implantaten mit sofortigen provisorischen Zähnen.","m.3days":"Zähne in 3 Tagen",
+"t6.t":"Bleaching","t6.d":"Professionelle Aufhellung um mehrere Stufen in einer Sitzung.","m.1day":"1 Tag",
+"t7.t":"Aligner & Zahnspangen","t7.d":"Gerade Zähne mit unsichtbaren Schienen oder ästhetischen Brackets.","m.plan":"Plan in 1 Termin",
+"t8.t":"Behandlung im Schlaf","t8.d":"Sedierung für Angstpatienten unter Aufsicht eines Anästhesisten.","m.nostress":"stressfrei","m.sedation":"Sedierung",
+"j.eyebrow":"Patientenreise","j.h2":"Von der Anfrage <em class=\"shine\">zum Ergebnis</em>","j.p":"Ihr betreuender Arzt begleitet jeden Schritt. Sie wissen immer, was als Nächstes kommt, was es kostet und wer verantwortlich ist.",
+"st1.t":"Anfrage & Fotos","st1.d":"Beschreiben Sie Ihr Anliegen und senden Sie Fotos oder Befunde.","st1.s":"am selben Tag",
+"st2.t":"Behandlungsplan","st2.d":"Ein Klinikarzt berät Sie online und erstellt einen Plan mit Festpreis.","st2.s":"24–48 Stunden",
+"st3.t":"Reise","st3.d":"Wir buchen Flug und Hotel und holen Sie mit einem VIP-Transfer am Flughafen ab.","st3.s":"zu Ihren Terminen",
+"st4.t":"Eingriff","st4.d":"Koordinator und Dolmetscher begleiten Sie bei jedem Termin und am OP-Tag.","st4.s":"1–7 Tage",
+"st5.t":"Genesung","st5.d":"Online-Kontrolle des Ergebnisses nach Ihrer Rückkehr.","st5.s":"bis zu 12 Monate",
+"c.eyebrow":"Inklusive","c.orb":"betreuender Arzt für alles","c.h2":"Sie kümmern sich um <em class=\"shine\">sich selbst</em>. Den Rest übernehmen wir",
+"i1.b":"Auswahl von Klinik und Arzt","i1.s":"Vergleich von 2–3 Optionen","i2.b":"Online-Beratung","i2.s":"vor der Flugbuchung","i3.b":"Abholung am Flughafen","i4.b":"Hotel nahe der Klinik","i5.b":"Dolmetscher","i5.s":"bei allen Terminen","i6.b":"Nachsorge","i6.s":"Foto-Kontrolle online",
+"band.q":"Der beste Arzt für Sie ist nicht der mit der lautesten Werbung, sondern der, der <em>genau Ihr Anliegen am besten löst.</em>","band.sig":"Das MedExpert-Prinzip",
+"faq.h2":"Was Sie <em class=\"shine\">vorher wissen sollten</em>",
+"q1":"Was kostet die Behandlung?","a1":"Der Preis hängt vom Umfang und der Klinik ab. Nach der Online-Beratung erhalten Sie einen Plan mit Festpreis, in dem Transfer, Unterkunft und Dolmetscher bereits enthalten sind.",
+"q2":"Wie wählen Sie die Kliniken aus?","a2":"Wir prüfen Lizenzen des türkischen Gesundheitsministeriums, internationale Akkreditierung, die Erfahrung der Chirurgen und Ergebnisse früherer Patienten. Mit Kliniken, die unsere Prüfung nicht bestehen, arbeiten wir nicht.",
+"q3":"Wie viele Tage muss ich in der Türkei bleiben?","a3":"Haartransplantation und Check-up dauern 2–3 Tage, Veneers etwa 5–7 Tage, plastische Eingriffe 7–10 Tage. Die genaue Dauer nennt der Arzt im Behandlungsplan.",
+"q4":"Was, wenn nach der Rückkehr Fragen auftauchen?","a4":"Ihr Koordinator bleibt erreichbar. Sie senden Fotos, der Arzt berät online, und bei Bedarf organisieren wir einen Folgebesuch.",
+"q5":"Kann ich die Behandlung mit Urlaub verbinden?","a5":"Ja. Antalya liegt an der Mittelmeerküste, und wir wählen ein Hotel, in dem Sie sich in Ruhe erholen können, sofern Ihr Arzt zustimmt.",
+"ct.h2":"Beginnen wir mit <em class=\"shine\">einem Gespräch</em>","ct.p":"Hinterlassen Sie eine Anfrage, und ein Koordinator meldet sich über Ihren bevorzugten Messenger, um Ihr Anliegen zu besprechen und einen Plan zu erstellen.",
+"fm.name":"Ihr Name","fm.dir":"Fachbereich","fm.msg":"Kurz zu Ihrem Anliegen","fm.other":"Sonstiges","fm.send":"Anfrage senden","fm.note":"Mit dem Klick stimmen Sie der Verarbeitung Ihrer personenbezogenen Daten zu.",
+"msg.err":"Bitte geben Sie Ihren Namen und Ihre WhatsApp- oder Telegram-Nummer an, damit ein Koordinator Sie kontaktieren kann.",
+"msg.ok":"Danke, {name}! Ihre Anfrage zu „{dir}“ ist ausgefüllt. Dies ist ein Demo-Formular: Der Versand an WhatsApp oder ein CRM wird beim Start der Website auf der Domain eingerichtet.",
+"tm.eyebrow":"Unser Team",
+"tm.h2":"Ärzte, die Sie <em class=\"shine\">persönlich begleiten</em>",
+"tm.p":"Im Team von MedExpert arbeiten Ärzte aller Fachrichtungen mit abgeschlossenem Medizinstudium. Sie prüfen Ihren Fall, wählen Klinik und Chirurgen aus und begleiten Sie in allen Phasen der Behandlung.",
+"tm.num":"Fachbereiche, für jeden gibt es einen eigenen Arzt im Team",
+"tm.1t":"Ein Arzt Ihrer Fachrichtung",
+"tm.1d":"Ihren Fall betreut ein Spezialist des passenden Fachgebiets: Zahnarzt, Chirurg, Kardiologe, Onkologe und weitere.",
+"tm.2t":"Klinikwahl mit ärztlichem Blick",
+"tm.2d":"Wir bewerten Qualifikation der Chirurgen, Ausstattung und Behandlungsprotokolle so, wie es ein Arzt tut, nicht ein Reisebüro.",
+"tm.3t":"An Ihrer Seite in jeder Phase",
+"tm.3d":"Ihr betreuender Arzt erklärt den Behandlungsplan, ist an den entscheidenden Tagen erreichbar und überwacht die Genesung nach Ihrer Rückkehr.",
+"foot":"© 2026 MedExpert Turkey · Medizinischer Concierge in der Türkei"
+},
+tr:{
+"snd.on":"Sesi aç","snd.off":"Sesi kapat",
+"nav.services":"Tedaviler","nav.dental":"Diş Tedavisi","nav.journey":"Nasıl Çalışıyoruz","nav.concierge":"Hizmet","nav.faq":"SSS","nav.cta":"Danışmanlık",
+"hero.eyebrow":"Özel sağlık konsiyerji · Antalya · İstanbul","hero.l1":"Türkiye'deki","hero.l2":"tedaviniz","hero.l3":"güvenli ellerde",
+"hero.lede":"Size uygun akredite kliniği ve doktoru seçiyor, birinci sınıf bir seyahat planlıyor ve tamamen iyileşene kadar yanınızda oluyoruz.",
+"hero.cta1":"Tedavi planı alın","hero.cta2":"Tedaviler",
+"f.1":"kişisel sorumlu doktorunuz her an ulaşılabilir","f.2u":"SA","f.2":"içinde hazır tedavi planı","f.3u":"AY","f.3":"seyahat sonrası takip","f.4":"transfer, otel, tercüman",
+"svc.eyebrow":"Tedaviler","svc.h2":"Türkiye'nin <em class=\"shine\">standart belirlediği</em> on iki alan",
+"s1.t":"Saç ekimi","s1.d":"İz bırakmadan doğal saç çizgisi ve gerçek yoğunluk.","tag.grafts":"5.000 grefte kadar",
+"s2.t":"Diş tedavisi","s2.d":"Bir ya da iki seyahatte Hollywood gülüşü ve implant.","tag.veneers":"E.max lamina","tag.zircon":"Zirkonyum",
+"s3.t":"Estetik cerrahi","s3.d":"Doğal görünen zarif değişiklikler.","tag.rhino":"Rinoplasti","tag.mammo":"Meme estetiği","tag.bleph":"Blefaroplasti",
+"s4.t":"Check-up","s4.d":"Bir ya da iki günde kapsamlı sağlık taraması, kendi dilinizde raporla.","tag.mri":"MR / BT","tag.cardio":"Kardiyoloji","tag.oncoscreen":"Kanser taraması",
+"s5.t":"Göz hastalıkları","s5.d":"Lazerle görme düzeltme ve premium lensler.",
+"s6.t":"Obezite cerrahisi","s6.d":"Beslenme programı ve takiple kilo verme.","tag.balloon":"Mide balonu",
+"s7.t":"Onkoloji","s7.d":"Önde gelen kanser merkezlerinde tanı, ikinci görüş ve tedavi.",
+"s8.t":"Kardiyoloji","s8.d":"Minimal invaziv yöntemler dahil kalp muayenesi ve ameliyatları.","tag.bypass":"Bypass","tag.stent":"Stent","tag.valves":"Kalp kapakları",
+"s9.t":"Ortopedi","s9.d":"Hızlı rehabilitasyonla eklem protezi ve spor yaralanmaları tedavisi.","tag.knee":"Diz protezi","tag.hip":"Kalça protezi","tag.arthro":"Artroskopi",
+"s10.t":"Tüp bebek ve üreme sağlığı","s10.d":"Modern laboratuvarlar ve özenli destekle tüp bebek programları.","tag.ivf":"IVF / ICSI","tag.cryo":"Dondurma",
+"s11.t":"Beyin cerrahisi","s11.d":"Navigasyon eşliğinde omurga ve beyin ameliyatları.","tag.disc":"Bel fıtığı","tag.neuronav":"Nöronavigasyon","tag.endo":"Endoskopi",
+"s12.t":"Medikal estetik","s12.d":"Ameliyatsız yaşlanma karşıtı ve cihazlı estetik uygulamalar.","tag.botox":"Botoks","tag.fillers":"Dolgu",
+"d.h2":"İnsanların <em class=\"shine\">Türkiye'ye uçtuğu</em> gülüş",
+"d.p":"Diş tedavisi hastalarımızın en çok tercih ettiği alan. Kendi diş laboratuvarı olan klinikleri seçiyoruz, böylece işlemlerin çoğu tek seyahatte tamamlanıyor.",
+"d.btn":"Fiyat hesaplayın",
+"t1.t":"E.max lamina","t1.d":"İdeal şekil ve renk için ince seramik kaplamalar.","m.57":"5–7 gün","m.1trip":"1 seyahat",
+"t2.t":"Hollywood gülüşü","t2.d":"Kapsamlı estetik: gülüş tasarımı, tüm dişlere lamina veya kron.","m.710":"7–10 gün",
+"t3.t":"Zirkonyum kron","t3.d":"Metal içermeyen, sağlam ve doğal kronlar.",
+"t4.t":"İmplant","t4.d":"Üretici garantili premium implant sistemleri.","m.2trips":"2 seyahat",
+"t5.d":"4–6 implant üzerinde tüm çene, geçici dişler hemen.","m.3days":"3 günde diş",
+"t6.t":"Diş beyazlatma","t6.d":"Tek seansta birkaç ton profesyonel beyazlatma.","m.1day":"1 gün",
+"t7.t":"Şeffaf plak ve braket","t7.d":"Şeffaf plaklar veya estetik braketlerle düzgün dişler.","m.plan":"1 seansta plan",
+"t8.t":"Uyurken tedavi","t8.d":"Diş hekiminden korkanlar için anestezi uzmanı kontrolünde sedasyon.","m.nostress":"stressiz","m.sedation":"sedasyon",
+"j.eyebrow":"Hasta yolculuğu","j.h2":"Başvurudan <em class=\"shine\">sonuca</em>","j.p":"Her adımı sorumlu doktorunuz yönetir. Sırada ne olduğunu, maliyetini ve kimin sorumlu olduğunu her zaman bilirsiniz.",
+"st1.t":"Başvuru ve fotoğraflar","st1.d":"Durumunuzu anlatın, fotoğraf veya tahlil sonuçlarınızı gönderin.","st1.s":"aynı gün",
+"st2.t":"Tedavi planı","st2.d":"Klinik doktoru online görüşme yapar ve sabit fiyatlı bir plan sunar.","st2.s":"24–48 saat",
+"st3.t":"Seyahat","st3.d":"Uçuş ve oteli ayarlar, sizi havalimanında VIP transferle karşılarız.","st3.s":"sizin tarihlerinizde",
+"st4.t":"İşlem","st4.d":"Koordinatör ve tercüman her randevuda ve ameliyat gününde yanınızda.","st4.s":"1–7 gün",
+"st5.t":"İyileşme","st5.d":"Eve döndükten sonra sonucun online takibi.","st5.s":"12 aya kadar",
+"c.eyebrow":"Neler dahil","c.orb":"her şey için bir doktor","c.h2":"Siz <em class=\"shine\">kendinize</em> odaklanın. Gerisi bizde",
+"i1.b":"Klinik ve doktor seçimi","i1.s":"2–3 seçenek karşılaştırması","i2.b":"Online danışmanlık","i2.s":"bilet almadan önce","i3.b":"Havalimanında karşılama","i4.b":"Kliniğe yakın otel","i5.b":"Tercüman","i5.s":"tüm randevularda","i6.b":"Tedavi sonrası takip","i6.s":"online fotoğraf kontrolü",
+"band.q":"Sizin için en iyi doktor, reklamı en gürültülü olan değil, <em>tam da sizin sorununuzu en iyi çözendir.</em>","band.sig":"MedExpert ilkesi",
+"faq.h2":"Önceden <em class=\"shine\">bilmeniz gerekenler</em>",
+"q1":"Tedavi ne kadar tutar?","a1":"Fiyat, işlemin kapsamına ve kliniğe göre değişir. Online görüşmenin ardından transfer, konaklama ve tercümanın dahil olduğu sabit fiyatlı bir plan alırsınız.",
+"q2":"Klinikleri nasıl seçiyorsunuz?","a2":"Sağlık Bakanlığı lisanslarını, uluslararası akreditasyonu, cerrahların deneyimini ve önceki hastaların sonuçlarını kontrol ediyoruz. Denetimimizden geçemeyen kliniklerle çalışmıyoruz.",
+"q3":"Türkiye'de kaç gün kalmam gerekir?","a3":"Saç ekimi ve check-up 2–3 gün, lamina yaklaşık 5–7 gün, estetik ameliyatlar 7–10 gün sürer. Kesin süreyi doktor tedavi planında belirtir.",
+"q4":"Döndükten sonra sorularım olursa?","a4":"Koordinatörünüz iletişimde kalır. Fotoğraf gönderirsiniz, doktor online öneride bulunur, gerekirse kontrol ziyareti ayarlarız.",
+"q5":"Tedaviyi tatille birleştirebilir miyim?","a5":"Evet. Antalya Akdeniz kıyısındadır; doktorunuzun önerileri izin veriyorsa sakin bir iyileşme için uygun bir otel seçeriz.",
+"ct.h2":"Bir <em class=\"shine\">sohbetle</em> başlayalım","ct.p":"Başvurunuzu bırakın; koordinatörümüz durumunuzu konuşmak ve plan hazırlamak için tercih ettiğiniz mesajlaşma uygulamasından size ulaşsın.",
+"fm.name":"Adınız","fm.dir":"Tedavi alanı","fm.msg":"Kısaca durumunuz","fm.other":"Diğer","fm.send":"Başvuruyu gönder","fm.note":"Butona tıklayarak kişisel verilerinizin işlenmesini kabul etmiş olursunuz.",
+"msg.err":"Koordinatörün size ulaşabilmesi için adınızı ve WhatsApp veya Telegram numaranızı girin.",
+"msg.ok":"Teşekkürler, {name}! “{dir}” için başvurunuz hazır. Bu bir demo formdur: WhatsApp veya CRM'e gönderim, site kendi alan adında yayına girdiğinde bağlanacak.",
+"tm.eyebrow":"Ekibimiz",
+"tm.h2":"Sizi <em class=\"shine\">bizzat yönlendiren</em> doktorlar",
+"tm.p":"MedExpert ekibinde her branştan, tıp fakültesi mezunu doktorlar çalışır. Durumunuzu inceleyen, kliniği ve cerrahı seçen ve tedavinin her aşamasında size eşlik eden de onlardır.",
+"tm.num":"branş, her biri için ekibimizde bir doktor",
+"tm.1t":"Alanınızda bir doktor",
+"tm.1d":"Durumunuzu doğru branştan bir uzman yönetir: diş hekimi, cerrah, kardiyolog, onkolog ve diğerleri.",
+"tm.2t":"Klinik seçimi bir doktorun gözüyle",
+"tm.2d":"Cerrahların yetkinliğini, ekipmanı ve tedavi protokollerini bir seyahat acentesi gibi değil, bir doktor gibi değerlendiririz.",
+"tm.3t":"Her aşamada yanınızda",
+"tm.3d":"Sorumlu doktorunuz tedavi planını açıklar, kritik günlerde yanınızda olur ve eve döndükten sonra iyileşmenizi takip eder.",
+"foot":"© 2026 MedExpert Turkey · Türkiye'de sağlık konsiyerji"
+},
+ar:{
+"snd.on":"تشغيل الصوت","snd.off":"إيقاف الصوت",
+"nav.services":"العلاجات","nav.dental":"طب الأسنان","nav.journey":"كيف نعمل","nav.concierge":"الخدمة","nav.faq":"الأسئلة","nav.cta":"استشارة",
+"hero.eyebrow":"كونسيرج طبي خاص · أنطاليا · إسطنبول","hero.l1":"علاجك","hero.l2":"في تركيا","hero.l3":"في رعايتنا",
+"hero.lede":"نختار لك عيادة معتمدة والطبيب المناسب لحالتك، وننظّم رحلة فاخرة، ونبقى إلى جانبك حتى تتعافى تمامًا.",
+"hero.cta1":"احصل على خطة العلاج","hero.cta2":"العلاجات",
+"f.1":"طبيب مشرف شخصي متاح دائمًا","f.2u":"ساعة","f.2":"حتى تجهيز خطة العلاج","f.3u":"شهرًا","f.3":"من المتابعة بعد الرحلة","f.4":"نقل وفندق ومترجم",
+"svc.eyebrow":"العلاجات","svc.h2":"اثنا عشر تخصصًا <em class=\"shine\">تضع فيها تركيا المعايير</em>",
+"s1.t":"زراعة الشعر","s1.d":"خط شعر طبيعي وكثافة حقيقية دون ندوب ظاهرة.","tag.grafts":"حتى 5,000 بصيلة",
+"s2.t":"طب الأسنان","s2.d":"ابتسامة هوليوود وزراعة الأسنان في رحلة أو رحلتين.","tag.veneers":"قشور E.max","tag.zircon":"زركونيا",
+"s3.t":"الجراحة التجميلية","s3.d":"تغييرات راقية تبدو طبيعية.","tag.rhino":"تجميل الأنف","tag.mammo":"تجميل الثدي","tag.bleph":"تجميل الجفون",
+"s4.t":"الفحص الشامل","s4.d":"فحص صحي كامل في يوم أو يومين مع تقرير بلغتك.","tag.mri":"رنين / مقطعية","tag.cardio":"أمراض القلب","tag.oncoscreen":"الكشف المبكر عن السرطان",
+"s5.t":"طب العيون","s5.d":"تصحيح النظر بالليزر وعدسات فاخرة.",
+"s6.t":"جراحة السمنة","s6.d":"إنقاص الوزن مع برنامج غذائي ومتابعة.","tag.balloon":"بالون المعدة",
+"s7.t":"الأورام","s7.d":"التشخيص والرأي الثاني والعلاج في أبرز مراكز الأورام.",
+"s8.t":"أمراض القلب","s8.d":"فحوصات وجراحات القلب، بما فيها الجراحات طفيفة التوغل.","tag.bypass":"تحويل مسار الشرايين","tag.stent":"الدعامات","tag.valves":"الصمامات",
+"s9.t":"جراحة العظام","s9.d":"استبدال المفاصل والطب الرياضي مع تأهيل سريع.","tag.knee":"استبدال الركبة","tag.hip":"استبدال الورك","tag.arthro":"تنظير المفاصل",
+"s10.t":"أطفال الأنابيب والخصوبة","s10.d":"برامج أطفال الأنابيب بمختبرات حديثة ودعم يراعي الخصوصية.","tag.ivf":"IVF / ICSI","tag.cryo":"التجميد",
+"s11.t":"جراحة الأعصاب","s11.d":"جراحات العمود الفقري والدماغ بالملاحة الجراحية.","tag.disc":"الانزلاق الغضروفي","tag.neuronav":"الملاحة العصبية","tag.endo":"التنظير",
+"s12.t":"الطب التجميلي","s12.d":"علاجات مكافحة الشيخوخة والتجميل دون جراحة.","tag.botox":"بوتوكس","tag.fillers":"فيلر",
+"d.h2":"الابتسامة التي <em class=\"shine\">يسافر الناس إلى تركيا من أجلها</em>",
+"d.p":"طب الأسنان هو الخيار الأكثر طلبًا لدى مرضانا. نختار عيادات تمتلك مختبرات أسنان خاصة بها، لذا يمكن إنجاز معظم العمل في رحلة واحدة.",
+"d.btn":"احسب التكلفة",
+"t1.t":"قشور E.max","t1.d":"قشور خزفية رقيقة لشكل ولون مثاليين.","m.57":"5–7 أيام","m.1trip":"رحلة واحدة",
+"t2.t":"ابتسامة هوليوود","t2.d":"تجميل متكامل: تصميم الابتسامة وقشور أو تيجان لكامل الفك.","m.710":"7–10 أيام",
+"t3.t":"تيجان الزركونيا","t3.d":"تيجان متينة وطبيعية المظهر خالية من المعدن.",
+"t4.t":"زراعة الأسنان","t4.d":"أنظمة زراعة فاخرة بضمان الشركة المصنّعة.","m.2trips":"رحلتان",
+"t5.d":"فك كامل على 4–6 غرسات مع أسنان مؤقتة فورًا.","m.3days":"أسنان خلال 3 أيام",
+"t6.t":"تبييض الأسنان","t6.d":"تبييض احترافي لعدة درجات في جلسة واحدة.","m.1day":"يوم واحد",
+"t7.t":"التقويم الشفاف والتقليدي","t7.d":"أسنان مستقيمة بقوالب شفافة أو تقويم تجميلي.","m.plan":"خطة في زيارة واحدة",
+"t8.t":"العلاج أثناء النوم","t8.d":"تخدير لمن يخافون من طبيب الأسنان تحت إشراف طبيب تخدير.","m.nostress":"دون توتر","m.sedation":"تخدير",
+"j.eyebrow":"رحلة المريض","j.h2":"من الطلب <em class=\"shine\">إلى النتيجة</em>","j.p":"يرافق الطبيب المشرف كل مرحلة. تعرف دائمًا ما الخطوة التالية وكم تكلّف ومن المسؤول عنها.",
+"st1.t":"الطلب والصور","st1.d":"أخبرنا عن حالتك وأرسل الصور أو التحاليل.","st1.s":"في اليوم نفسه",
+"st2.t":"خطة العلاج","st2.d":"يستشيرك طبيب العيادة عبر الإنترنت ويقدّم خطة بسعر ثابت.","st2.s":"24–48 ساعة",
+"st3.t":"السفر","st3.d":"نحجز الطيران والفندق ونستقبلك في المطار بنقل VIP.","st3.s":"في المواعيد التي تناسبك",
+"st4.t":"الإجراء","st4.d":"المنسّق والمترجم معك في كل موعد وفي يوم العملية.","st4.s":"1–7 أيام",
+"st5.t":"التعافي","st5.d":"متابعة النتيجة عبر الإنترنت بعد عودتك إلى بلدك.","st5.s":"حتى 12 شهرًا",
+"c.eyebrow":"ما الذي يشمله","c.orb":"طبيب مشرف لكل شيء","c.h2":"اهتمّ <em class=\"shine\">بنفسك</em>، والباقي علينا",
+"i1.b":"اختيار العيادة والطبيب","i1.s":"مقارنة 2–3 خيارات","i2.b":"استشارة عبر الإنترنت","i2.s":"قبل شراء التذاكر","i3.b":"الاستقبال في المطار","i4.b":"فندق قرب العيادة","i5.b":"مترجم","i5.s":"في جميع المواعيد","i6.b":"المتابعة بعد العلاج","i6.s":"متابعة بالصور عبر الإنترنت",
+"band.q":"أفضل طبيب لك ليس صاحب الإعلان الأعلى صوتًا، بل <em>من يحلّ مشكلتك أنت بأفضل شكل.</em>","band.sig":"مبدأ MedExpert",
+"faq.h2":"ما يجب <em class=\"shine\">معرفته مسبقًا</em>",
+"q1":"كم تكلفة العلاج؟","a1":"يعتمد السعر على حجم العلاج والعيادة. بعد الاستشارة عبر الإنترنت تحصل على خطة بسعر ثابت يشمل النقل والإقامة والمترجم.",
+"q2":"كيف تختارون العيادات؟","a2":"نتحقق من تراخيص وزارة الصحة التركية والاعتماد الدولي وخبرة الجرّاحين ونتائج المرضى السابقين. لا نتعامل مع العيادات التي لا تجتاز تقييمنا.",
+"q3":"كم يومًا أحتاج للبقاء في تركيا؟","a3":"تستغرق زراعة الشعر والفحص الشامل 2–3 أيام، والقشور نحو 5–7 أيام، والعمليات التجميلية 7–10 أيام. يحدد الطبيب المدة الدقيقة في خطة العلاج.",
+"q4":"ماذا لو ظهرت أسئلة بعد عودتي؟","a4":"يبقى المنسّق على تواصل معك. ترسل الصور، فيقدّم الطبيب توصياته عبر الإنترنت، وننظّم زيارة متابعة عند الحاجة.",
+"q5":"هل يمكن الجمع بين العلاج والإجازة؟","a5":"نعم. تقع أنطاليا على ساحل البحر المتوسط، ونختار لك فندقًا يتيح تعافيًا هادئًا إذا سمحت توصيات الطبيب بذلك.",
+"ct.h2":"لنبدأ <em class=\"shine\">بمحادثة</em>","ct.p":"اترك طلبك وسيتواصل معك المنسّق عبر تطبيق المراسلة الذي تفضّله لمناقشة حالتك وإعداد خطة.",
+"fm.name":"الاسم","fm.dir":"التخصص","fm.msg":"نبذة عن حالتك","fm.other":"أخرى","fm.send":"إرسال الطلب","fm.note":"بالنقر على الزر، فإنك توافق على معالجة بياناتك الشخصية.",
+"msg.err":"يرجى إدخال اسمك ورقم واتساب أو تيليجرام ليتمكّن المنسّق من التواصل معك.",
+"msg.ok":"شكرًا، {name}! طلبك بخصوص «{dir}» جاهز. هذا نموذج تجريبي: سيتم ربط الإرسال بواتساب أو نظام CRM عند إطلاق الموقع على نطاقه.",
+"tm.eyebrow":"فريقنا",
+"tm.h2":"أطباء <em class=\"shine\">يرافقونك شخصيًا</em>",
+"tm.p":"يضم فريق MedExpert أطباء من جميع التخصصات حاصلين على شهادات جامعية في الطب. هم من يدرسون حالتك، ويختارون العيادة والجرّاح، ويرافقونك في جميع مراحل العلاج.",
+"tm.num":"تخصصًا، ولكل منها طبيب في فريقنا",
+"tm.1t":"طبيب من تخصص حالتك",
+"tm.1d":"يتولى حالتك أخصائي من المجال المناسب: طبيب أسنان أو جرّاح أو طبيب قلب أو أورام وغيرهم.",
+"tm.2t":"اختيار العيادة بعين الطبيب",
+"tm.2d":"نقيّم كفاءة الجرّاحين والتجهيزات وبروتوكولات العلاج كما يفعل الطبيب، لا وكيل السفر.",
+"tm.3t":"إلى جانبك في كل مرحلة",
+"tm.3d":"يشرح لك الطبيب المشرف خطة العلاج، ويكون متاحًا في الأيام الحاسمة، ويتابع تعافيك بعد عودتك.",
+"foot":"© 2026 MedExpert Turkey · كونسيرج طبي في تركيا"
+},
+es:{
+"snd.on":"Activar sonido","snd.off":"Silenciar",
+"nav.services":"Tratamientos","nav.dental":"Odontología","nav.journey":"Cómo trabajamos","nav.concierge":"Servicio","nav.faq":"Preguntas","nav.cta":"Consulta",
+"hero.eyebrow":"Concierge médico privado · Antalya · Estambul","hero.l1":"Su tratamiento","hero.l2":"en Turquía","hero.l3":"bajo nuestro cuidado",
+"hero.lede":"Elegimos una clínica acreditada y el médico adecuado para su caso, organizamos un viaje de primera clase y le acompañamos hasta su completa recuperación.",
+"hero.cta1":"Obtener mi plan de tratamiento","hero.cta2":"Tratamientos",
+"f.1":"médico responsable personal disponible","f.2u":"H","f.2":"hasta tener su plan de tratamiento","f.3u":"MESES","f.3":"de seguimiento tras el viaje","f.4":"traslado, hotel, intérprete",
+"svc.eyebrow":"Tratamientos","svc.h2":"Doce especialidades en las que Turquía <em class=\"shine\">marca el estándar</em>",
+"s1.t":"Trasplante capilar","s1.d":"Una línea natural y densidad real sin cicatrices visibles.","tag.grafts":"hasta 5.000 injertos",
+"s2.t":"Odontología","s2.d":"Sonrisa de Hollywood e implantes en uno o dos viajes.","tag.veneers":"Carillas E.max","tag.zircon":"Zirconio",
+"s3.t":"Cirugía plástica","s3.d":"Cambios sutiles que se ven naturales.","tag.rhino":"Rinoplastia","tag.mammo":"Cirugía mamaria","tag.bleph":"Blefaroplastia",
+"s4.t":"Chequeo médico","s4.d":"Revisión completa en uno o dos días, con informe en su idioma.","tag.mri":"RM / TC","tag.cardio":"Cardiología","tag.oncoscreen":"Cribado oncológico",
+"s5.t":"Oftalmología","s5.d":"Corrección visual láser y lentes premium.",
+"s6.t":"Cirugía bariátrica","s6.d":"Pérdida de peso con plan nutricional y seguimiento.","tag.balloon":"Balón gástrico",
+"s7.t":"Oncología","s7.d":"Diagnóstico, segunda opinión y tratamiento en centros oncológicos líderes.",
+"s8.t":"Cardiología","s8.d":"Revisiones y cirugía cardíaca, incluida la mínimamente invasiva.","tag.bypass":"Bypass","tag.stent":"Stent","tag.valves":"Válvulas",
+"s9.t":"Traumatología","s9.d":"Prótesis articulares y medicina deportiva con rehabilitación rápida.","tag.knee":"Prótesis de rodilla","tag.hip":"Prótesis de cadera","tag.arthro":"Artroscopia",
+"s10.t":"FIV y fertilidad","s10.d":"Programas de FIV con laboratorios modernos y acompañamiento discreto.","tag.ivf":"FIV / ICSI","tag.cryo":"Criopreservación",
+"s11.t":"Neurocirugía","s11.d":"Cirugía de columna y cerebro con neuronavegación.","tag.disc":"Hernia discal","tag.neuronav":"Neuronavegación","tag.endo":"Endoscopia",
+"s12.t":"Medicina estética","s12.d":"Tratamientos antiedad y estética sin cirugía.","tag.botox":"Bótox","tag.fillers":"Rellenos",
+"d.h2":"La sonrisa por la que <em class=\"shine\">se viaja a Turquía</em>",
+"d.p":"La odontología es la especialidad más solicitada por nuestros pacientes. Elegimos clínicas con laboratorio dental propio, así que la mayor parte del trabajo se hace en un solo viaje.",
+"d.btn":"Calcular el precio",
+"t1.t":"Carillas E.max","t1.d":"Finas carillas de cerámica para una forma y un color ideales.","m.57":"5–7 días","m.1trip":"1 viaje",
+"t2.t":"Sonrisa de Hollywood","t2.d":"Estética completa: diseño de sonrisa, carillas o coronas en toda la arcada.","m.710":"7–10 días",
+"t3.t":"Coronas de zirconio","t3.d":"Coronas resistentes y naturales sin metal.",
+"t4.t":"Implantes dentales","t4.d":"Sistemas de implantes premium con garantía del fabricante.","m.2trips":"2 viajes",
+"t5.d":"Arcada completa sobre 4–6 implantes con dientes provisionales al momento.","m.3days":"dientes en 3 días",
+"t6.t":"Blanqueamiento","t6.d":"Blanqueamiento profesional de varios tonos en una sola sesión.","m.1day":"1 día",
+"t7.t":"Alineadores y brackets","t7.d":"Dientes alineados con férulas transparentes o brackets estéticos.","m.plan":"plan en 1 visita",
+"t8.t":"Tratamiento dormido","t8.d":"Sedación para pacientes con miedo al dentista, bajo control de un anestesista.","m.nostress":"sin estrés","m.sedation":"sedación",
+"j.eyebrow":"El camino del paciente","j.h2":"De la solicitud <em class=\"shine\">al resultado</em>","j.p":"Su médico responsable gestiona cada etapa. Siempre sabe qué viene después, cuánto cuesta y quién es responsable.",
+"st1.t":"Solicitud y fotos","st1.d":"Cuéntenos su caso y envíe fotos o análisis.","st1.s":"el mismo día",
+"st2.t":"Plan de tratamiento","st2.d":"Un médico de la clínica le atiende online y le da un plan con precio cerrado.","st2.s":"24–48 horas",
+"st3.t":"Viaje","st3.d":"Reservamos vuelo y hotel y le recogemos en el aeropuerto con traslado VIP.","st3.s":"en sus fechas",
+"st4.t":"Procedimiento","st4.d":"Coordinador e intérprete le acompañan en cada cita y el día de la operación.","st4.s":"1–7 días",
+"st5.t":"Recuperación","st5.d":"Seguimiento online del resultado tras volver a casa.","st5.s":"hasta 12 meses",
+"c.eyebrow":"Qué incluye","c.orb":"un médico responsable para todo","c.h2":"Usted se ocupa de <em class=\"shine\">sí mismo</em>. Del resto nos ocupamos nosotros",
+"i1.b":"Selección de clínica y médico","i1.s":"comparación de 2–3 opciones","i2.b":"Consulta online","i2.s":"antes de comprar los billetes","i3.b":"Recogida en el aeropuerto","i4.b":"Hotel cerca de la clínica","i5.b":"Intérprete","i5.s":"en todas las citas","i6.b":"Seguimiento posterior","i6.s":"control con fotos online",
+"band.q":"El mejor médico para usted no es el que tiene la publicidad más llamativa, sino el que <em>mejor resuelve su caso concreto.</em>","band.sig":"El principio MedExpert",
+"faq.h2":"Lo que conviene <em class=\"shine\">saber antes</em>",
+"q1":"¿Cuánto cuesta el tratamiento?","a1":"El precio depende del alcance y de la clínica. Tras la consulta online recibe un plan con precio cerrado que ya incluye traslado, alojamiento e intérprete.",
+"q2":"¿Cómo eligen las clínicas?","a2":"Verificamos las licencias del Ministerio de Sanidad turco, la acreditación internacional, la experiencia de los cirujanos y los resultados de pacientes anteriores. No trabajamos con clínicas que no superan nuestra revisión.",
+"q3":"¿Cuántos días debo pasar en Turquía?","a3":"El trasplante capilar y el chequeo llevan 2–3 días, las carillas unos 5–7 días y la cirugía plástica 7–10 días. El médico indicará el plazo exacto en el plan de tratamiento.",
+"q4":"¿Y si tengo dudas después de volver?","a4":"Su coordinador sigue en contacto. Usted envía fotos, el médico le orienta online y, si hace falta, organizamos una visita de control.",
+"q5":"¿Puedo combinar el tratamiento con unas vacaciones?","a5":"Sí. Antalya está en la costa mediterránea y elegimos un hotel para que se recupere con tranquilidad, si las indicaciones médicas lo permiten.",
+"ct.h2":"Empecemos con <em class=\"shine\">una conversación</em>","ct.p":"Deje su solicitud y un coordinador le contactará por su mensajería preferida para hablar de su caso y preparar un plan.",
+"fm.name":"Su nombre","fm.dir":"Especialidad","fm.msg":"Breve descripción de su caso","fm.other":"Otro","fm.send":"Enviar solicitud","fm.note":"Al hacer clic, acepta el tratamiento de sus datos personales.",
+"msg.err":"Indique su nombre y su número de WhatsApp o Telegram para que un coordinador pueda contactarle.",
+"msg.ok":"¡Gracias, {name}! Su solicitud sobre «{dir}» está lista. Este es un formulario de demostración: el envío a WhatsApp o a un CRM se conectará cuando el sitio se publique en su dominio.",
+"tm.eyebrow":"Nuestro equipo",
+"tm.h2":"Médicos que <em class=\"shine\">le acompañan personalmente</em>",
+"tm.p":"El equipo de MedExpert está formado por médicos de todas las especialidades con titulación universitaria en medicina. Son ellos quienes estudian su caso, eligen la clínica y el cirujano y le acompañan en todas las etapas del tratamiento.",
+"tm.num":"especialidades, cada una con su propio médico en el equipo",
+"tm.1t":"Un médico de su especialidad",
+"tm.1d":"Su caso lo lleva un especialista del área adecuada: dentista, cirujano, cardiólogo, oncólogo y otros.",
+"tm.2t":"La clínica, elegida con ojos de médico",
+"tm.2d":"Evaluamos la cualificación de los cirujanos, el equipamiento y los protocolos como lo haría un médico, no una agencia de viajes.",
+"tm.3t":"A su lado en cada etapa",
+"tm.3d":"Su médico responsable le explica el plan, está disponible en los días clave y supervisa su recuperación al volver a casa.",
+"foot":"© 2026 MedExpert Turkey · Concierge médico en Turquía"
+},
+it:{
+"snd.on":"Attiva audio","snd.off":"Disattiva audio",
+"nav.services":"Trattamenti","nav.dental":"Odontoiatria","nav.journey":"Come lavoriamo","nav.concierge":"Servizio","nav.faq":"Domande","nav.cta":"Consulenza",
+"hero.eyebrow":"Concierge medico privato · Antalya · Istanbul","hero.l1":"Le vostre cure","hero.l2":"in Turchia","hero.l3":"nelle nostre mani",
+"hero.lede":"Selezioniamo per voi una clinica accreditata e il medico giusto, organizziamo un viaggio di prima classe e restiamo al vostro fianco fino alla completa guarigione.",
+"hero.cta1":"Richiedi il piano di cura","hero.cta2":"Trattamenti",
+"f.1":"medico referente personale sempre raggiungibile","f.2u":"ORE","f.2":"per avere il piano di cura","f.3u":"MESI","f.3":"di follow-up dopo il viaggio","f.4":"transfer, hotel, interprete",
+"svc.eyebrow":"Trattamenti","svc.h2":"Dodici specialità in cui la Turchia <em class=\"shine\">detta lo standard</em>",
+"s1.t":"Trapianto di capelli","s1.d":"Attaccatura naturale e vera densità senza cicatrici visibili.","tag.grafts":"fino a 5.000 innesti",
+"s2.t":"Odontoiatria","s2.d":"Sorriso da Hollywood e impianti in uno o due viaggi.","tag.veneers":"Faccette E.max","tag.zircon":"Zirconia",
+"s3.t":"Chirurgia plastica","s3.d":"Cambiamenti delicati dall'aspetto naturale.","tag.rhino":"Rinoplastica","tag.mammo":"Mastoplastica","tag.bleph":"Blefaroplastica",
+"s4.t":"Check-up","s4.d":"Controllo completo in uno o due giorni, con referto nella vostra lingua.","tag.mri":"RM / TC","tag.cardio":"Cardiologia","tag.oncoscreen":"Screening oncologico",
+"s5.t":"Oculistica","s5.d":"Correzione laser della vista e lenti premium.",
+"s6.t":"Chirurgia bariatrica","s6.d":"Perdita di peso con piano nutrizionale e follow-up.","tag.balloon":"Palloncino gastrico",
+"s7.t":"Oncologia","s7.d":"Diagnosi, secondo parere e cure nei principali centri oncologici.",
+"s8.t":"Cardiologia","s8.d":"Controlli e interventi al cuore, anche mininvasivi.","tag.bypass":"Bypass","tag.stent":"Stent","tag.valves":"Valvole",
+"s9.t":"Ortopedia","s9.d":"Protesi articolari e medicina sportiva con riabilitazione rapida.","tag.knee":"Protesi di ginocchio","tag.hip":"Protesi d'anca","tag.arthro":"Artroscopia",
+"s10.t":"PMA e fertilità","s10.d":"Programmi di fecondazione assistita con laboratori moderni e supporto discreto.","tag.ivf":"FIVET / ICSI","tag.cryo":"Crioconservazione",
+"s11.t":"Neurochirurgia","s11.d":"Interventi alla colonna e al cervello con neuronavigazione.","tag.disc":"Ernia del disco","tag.neuronav":"Neuronavigazione","tag.endo":"Endoscopia",
+"s12.t":"Medicina estetica","s12.d":"Trattamenti anti-age ed estetici senza chirurgia.","tag.botox":"Botox","tag.fillers":"Filler",
+"d.h2":"Il sorriso per cui <em class=\"shine\">si vola in Turchia</em>",
+"d.p":"L'odontoiatria è la specialità più richiesta dai nostri pazienti. Scegliamo cliniche con un proprio laboratorio odontotecnico, così la maggior parte dei lavori si completa in un solo viaggio.",
+"d.btn":"Calcola il costo",
+"t1.t":"Faccette E.max","t1.d":"Sottili faccette in ceramica per forma e colore ideali.","m.57":"5–7 giorni","m.1trip":"1 viaggio",
+"t2.t":"Sorriso da Hollywood","t2.d":"Estetica completa: smile design, faccette o corone su tutta l'arcata.","m.710":"7–10 giorni",
+"t3.t":"Corone in zirconia","t3.d":"Corone resistenti e naturali, senza metallo.",
+"t4.t":"Implantologia","t4.d":"Sistemi implantari premium con garanzia del produttore.","m.2trips":"2 viaggi",
+"t5.d":"Un'arcata completa su 4–6 impianti con denti provvisori subito.","m.3days":"denti in 3 giorni",
+"t6.t":"Sbiancamento","t6.d":"Sbiancamento professionale di più tonalità in una seduta.","m.1day":"1 giorno",
+"t7.t":"Allineatori e apparecchi","t7.d":"Denti dritti con allineatori trasparenti o apparecchi estetici.","m.plan":"piano in 1 visita",
+"t8.t":"Cure in sedazione","t8.d":"Sedazione per chi ha paura del dentista, sotto il controllo di un anestesista.","m.nostress":"senza stress","m.sedation":"sedazione",
+"j.eyebrow":"Il percorso del paziente","j.h2":"Dalla richiesta <em class=\"shine\">al risultato</em>","j.p":"Il medico referente segue ogni fase. Sapete sempre cosa succede dopo, quanto costa e chi ne è responsabile.",
+"st1.t":"Richiesta e foto","st1.d":"Descriveteci il vostro caso e inviate foto o esami.","st1.s":"il giorno stesso",
+"st2.t":"Piano di cura","st2.d":"Un medico della clinica vi visita online e propone un piano a prezzo fisso.","st2.s":"24–48 ore",
+"st3.t":"Viaggio","st3.d":"Prenotiamo volo e hotel e vi accogliamo in aeroporto con transfer VIP.","st3.s":"nelle vostre date",
+"st4.t":"Intervento","st4.d":"Coordinatore e interprete sono con voi a ogni visita e il giorno dell'intervento.","st4.s":"1–7 giorni",
+"st5.t":"Recupero","st5.d":"Controllo online del risultato dopo il rientro a casa.","st5.s":"fino a 12 mesi",
+"c.eyebrow":"Cosa è incluso","c.orb":"un medico referente per tutto","c.h2":"Voi pensate a <em class=\"shine\">voi stessi</em>. Al resto pensiamo noi",
+"i1.b":"Scelta di clinica e medico","i1.s":"confronto tra 2–3 opzioni","i2.b":"Consulenza online","i2.s":"prima di acquistare i biglietti","i3.b":"Accoglienza in aeroporto","i4.b":"Hotel vicino alla clinica","i5.b":"Interprete","i5.s":"a tutte le visite","i6.b":"Follow-up","i6.s":"controllo fotografico online",
+"band.q":"Il medico migliore per voi non è quello con la pubblicità più rumorosa, ma quello che <em>risolve meglio proprio il vostro caso.</em>","band.sig":"Il principio MedExpert",
+"faq.h2":"Cosa è importante <em class=\"shine\">sapere prima</em>",
+"q1":"Quanto costa il trattamento?","a1":"Il prezzo dipende dall'entità dell'intervento e dalla clinica. Dopo la consulenza online ricevete un piano a prezzo fisso che include già transfer, alloggio e interprete.",
+"q2":"Come scegliete le cliniche?","a2":"Verifichiamo le licenze del Ministero della Salute turco, l'accreditamento internazionale, l'esperienza dei chirurghi e i risultati dei pazienti precedenti. Non lavoriamo con cliniche che non superano la nostra verifica.",
+"q3":"Quanti giorni devo restare in Turchia?","a3":"Trapianto di capelli e check-up richiedono 2–3 giorni, le faccette circa 5–7 giorni, la chirurgia plastica 7–10 giorni. Il medico indicherà i tempi esatti nel piano di cura.",
+"q4":"E se dopo il rientro ho delle domande?","a4":"Il coordinatore resta in contatto. Inviate le foto, il medico vi consiglia online e, se necessario, organizziamo una visita di controllo.",
+"q5":"Posso unire le cure a una vacanza?","a5":"Sì. Antalya si trova sulla costa mediterranea e scegliamo un hotel dove recuperare con calma, se le indicazioni del medico lo consentono.",
+"ct.h2":"Iniziamo con <em class=\"shine\">una conversazione</em>","ct.p":"Lasciate una richiesta e un coordinatore vi contatterà sulla vostra app di messaggistica preferita per parlare del caso e preparare un piano.",
+"fm.name":"Il vostro nome","fm.dir":"Specialità","fm.msg":"Breve descrizione del caso","fm.other":"Altro","fm.send":"Invia richiesta","fm.note":"Cliccando il pulsante acconsentite al trattamento dei dati personali.",
+"msg.err":"Inserite nome e numero WhatsApp o Telegram per essere ricontattati da un coordinatore.",
+"msg.ok":"Grazie, {name}! La richiesta per «{dir}» è compilata. Questo è un modulo dimostrativo: l'invio a WhatsApp o a un CRM sarà collegato al lancio del sito sul dominio.",
+"tm.eyebrow":"Il nostro team",
+"tm.h2":"Medici che <em class=\"shine\">vi seguono personalmente</em>",
+"tm.p":"Nel team di MedExpert lavorano medici di tutte le specialità, con laurea in medicina. Sono loro a studiare il vostro caso, scegliere la clinica e il chirurgo e accompagnarvi in tutte le fasi del trattamento.",
+"tm.num":"specialità, ognuna con il proprio medico nel team",
+"tm.1t":"Un medico della vostra specialità",
+"tm.1d":"Il vostro caso è seguito da uno specialista del settore giusto: dentista, chirurgo, cardiologo, oncologo e altri.",
+"tm.2t":"La clinica scelta con gli occhi di un medico",
+"tm.2d":"Valutiamo qualifiche dei chirurghi, attrezzature e protocolli di cura come farebbe un medico, non un'agenzia di viaggi.",
+"tm.3t":"Al vostro fianco in ogni fase",
+"tm.3d":"Il medico referente spiega il piano di cura, è presente nei giorni chiave e segue il recupero dopo il rientro a casa.",
+"foot":"© 2026 MedExpert Turkey · Concierge medico in Turchia"
+}
+};
+</script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(pointer:fine)').matches;
+  const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+  const root=document.documentElement;
+
+  /* ===== i18n ===== */
+  document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(!(k in T.ru)) T.ru[k]=el.innerHTML.trim()});
+  const m1=document.getElementById('m1'), m2=document.getElementById('m2');
+  const m1tpl=m1.innerHTML, m2tpl=m2.innerHTML;
+  let lang='ru';
+  const tr=k=>(T[lang]&&T[lang][k])??T.en[k]??T.ru[k]??'';
+
+  function splitHeading(h){
+    let i=0;
+    const walk=n=>{[...n.childNodes].forEach(c=>{
+      if(c.nodeType===3){
+        const frag=document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach(w=>{
+          if(!w) return;
+          if(/^\s+$/.test(w)){frag.appendChild(document.createTextNode(' '));return}
+          const o=document.createElement('span');o.className='w';const s=document.createElement('span');s.textContent=w;s.style.setProperty('--i',i++);o.appendChild(s);frag.appendChild(o);
+        });
+        c.replaceWith(frag);
+      } else if(c.nodeType===1 && !c.classList.contains('shine')) walk(c);
+      else if(c.nodeType===1){const o=document.createElement('span');o.className='w';c.replaceWith(o);const s=document.createElement('span');s.style.setProperty('--i',i++);s.appendChild(c);o.appendChild(s);}
+    })};
+    walk(h);
+  }
+  function buildMarquee(){
+    const fill=(row,tpl)=>{row.innerHTML=tpl;row.querySelectorAll('[data-t]').forEach(el=>el.innerHTML=tr(el.dataset.t));row.innerHTML=row.innerHTML.repeat(3)};
+    fill(m1,m1tpl);fill(m2,m2tpl);
+  }
+  const langMenu=document.getElementById('langMenu'), langCur=document.getElementById('langCur'), langBox=document.getElementById('lang'), langBtn=document.getElementById('langBtn');
+  langMenu.innerHTML=LANGS.map(([c,n])=>`<li><button type="button" data-lang="${c}" lang="${c}">${n}<small>${c.toUpperCase()}</small></button></li>`).join('');
+
+  function apply(l,first){
+    lang=T[l]?l:'ru';
+    root.lang=lang; root.dir=lang==='ar'?'rtl':'ltr';
+    document.querySelectorAll('[data-t]').forEach(el=>{
+      if(el.closest('.mrow')) return;
+      el.innerHTML=tr(el.dataset.t);
+      if(el.classList.contains('split')) splitHeading(el);
+    });
+    buildMarquee();
+    langCur.textContent=lang.toUpperCase();
+    if(window.__snd) window.__snd();
+    langMenu.querySelectorAll('button').forEach(b=>b.setAttribute('aria-current',b.dataset.lang===lang));
+    const ok=document.getElementById('ok'); if(!first) ok.hidden=true;
+    try{localStorage.setItem('mx-lang',lang)}catch(e){}
+    if(!first){layout();}
+  }
+  let saved=null; try{saved=localStorage.getItem('mx-lang')}catch(e){}
+  const nav0=(navigator.language||'ru').slice(0,2).toLowerCase();
+  const hashLang=location.hash.slice(1);
+  apply(T[hashLang]?hashLang:(saved&&T[saved]?saved:(T[nav0]?nav0:'en')),true);
+
+  langBtn.addEventListener('click',e=>{e.stopPropagation();const o=langBox.classList.toggle('open');langBtn.setAttribute('aria-expanded',o)});
+  langMenu.addEventListener('click',e=>{const b=e.target.closest('button[data-lang]');if(!b)return;apply(b.dataset.lang);langBox.classList.remove('open');langBtn.setAttribute('aria-expanded','false')});
+  document.addEventListener('click',e=>{if(!langBox.contains(e.target)){langBox.classList.remove('open');langBtn.setAttribute('aria-expanded','false')}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){langBox.classList.remove('open');langBtn.setAttribute('aria-expanded','false')}});
+
+  /* loader */
+  const loader=document.getElementById('loader'), lnum=document.getElementById('lnum');
+  const t0=performance.now();
+  (function cnt(){const p=clamp((performance.now()-t0)/1500);lnum.textContent=String(Math.round(p*100)).padStart(3,'0');if(p<1)requestAnimationFrame(cnt)})();
+  setTimeout(()=>loader.classList.add('done'), reduce?0:1650);
+
+  /* smooth scroll */
+  let lenis=null;
+  if(window.Lenis && !reduce){
+    lenis=new Lenis({duration:1.25,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+      const id=a.getAttribute('href'); const el=id==='#top'?0:document.querySelector(id);
+      if(el!==null){e.preventDefault();lenis.scrollTo(el,{offset:id==='#top'?0:-20});}
+    }));
+  }
+
+  /* reveal */
+  if('IntersectionObserver' in window && !reduce){
+    const els=[...document.querySelectorAll('.rv,.split')];
+    els.forEach(el=>{if(el.getBoundingClientRect().top<innerHeight) el.classList.add('in')});
+    root.classList.add('js');
+    const io=new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){
+        const sibs=[...e.target.parentElement.children].filter(c=>c.classList.contains('rv'));
+        if(e.target.classList.contains('rv')) e.target.style.transitionDelay=(Math.max(0,sibs.indexOf(e.target))*.09)+'s';
+        e.target.classList.add('in');io.unobserve(e.target);
+      }
+    }),{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+    els.forEach(el=>{if(!el.classList.contains('in')) io.observe(el)});
+  }
+
+  /* counters */
+  const counters=[...document.querySelectorAll('.count')];
+  counters.forEach(c=>c.textContent='0');
+  setTimeout(()=>{const s=performance.now();(function run(){const p=clamp((performance.now()-s)/1800),e=1-Math.pow(1-p,4);counters.forEach(c=>c.textContent=Math.round(e*+c.dataset.to));if(p<1)requestAnimationFrame(run)})()}, reduce?0:2300);
+
+  /* magnetic buttons, card tilt, spotlight */
+  if(fine && !reduce){
+    document.querySelectorAll('.mag').forEach(b=>{
+      b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.32}px)`});
+      b.addEventListener('pointerleave',()=>b.style.transform='');
+    });
+    document.querySelectorAll('.treat li').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}));
+    document.querySelectorAll('.card').forEach(c=>{
+      c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateY(${x*9}deg) rotateX(${-y*9}deg) translateZ(0)`});
+      c.addEventListener('pointerleave',()=>c.style.transform='');
+    });
+  }
+
+
+  /* hero phone: tilt to pointer, gentle scroll lean, video autoplay */
+  const phone=document.getElementById('phone'), vid=document.getElementById('heroVideo'), ph=document.getElementById('phPlaceholder');
+  let ptx=0,pty=0,pcx=0,pcy=0;
+  if(fine && !reduce) addEventListener('pointermove',e=>{ptx=e.clientX/innerWidth-.5;pty=e.clientY/innerHeight-.5},{passive:true});
+  (function tilt(){pcx+=(ptx-pcx)*.06;pcy+=(pty-pcy)*.06;const sc=Math.min(1,scrollY/innerHeight);
+    phone.style.transform=`rotateY(${pcx*-18+(root.dir==='rtl'?6:-6)*(1-sc)}deg) rotateX(${pcy*12+sc*14}deg) translateY(${sc*-40}px)`;
+    if(!reduce)requestAnimationFrame(tilt)})();
+  const VIDEO_SRC=phone.dataset.video||'';
+  if(VIDEO_SRC){vid.src=VIDEO_SRC;}
+  const sndBtn=document.getElementById('sndBtn'), sndLbl=document.getElementById('sndLbl');
+  window.__snd=()=>{const on=!vid.muted;sndBtn.setAttribute('aria-pressed',on);sndLbl.textContent=tr(on?'snd.off':'snd.on')};
+  window.__snd();
+  sndBtn.addEventListener('click',()=>{vid.muted=!vid.muted;if(!vid.muted){vid.volume=1;const pr=vid.play();if(pr&&pr.catch)pr.catch(()=>{})}window.__snd()});
+  vid.addEventListener('loadeddata',()=>{ph.classList.add('gone');const pr=vid.play();if(pr&&pr.catch)pr.catch(()=>{})});
+
+
+  /* service card videos: play only on button press, no sound, one at a time */
+  const cardVids=[...document.querySelectorAll('.vis.has-vid')];
+  cardVids.forEach(vis=>{
+    const v=vis.querySelector('video'), b=vis.querySelector('.vplay');
+    const sync=()=>{const on=!v.paused&&!v.ended;vis.classList.toggle('playing',on);b.setAttribute('aria-pressed',on)};
+    b.addEventListener('click',e=>{e.stopPropagation();
+      if(v.paused||v.ended){cardVids.forEach(o=>{const ov=o.querySelector('video');if(ov!==v)ov.pause()});v.muted=true;const pr=v.play();if(pr&&pr.catch)pr.catch(()=>{})}else v.pause()});
+    v.addEventListener('click',()=>b.click());
+    ['play','pause','ended'].forEach(ev=>v.addEventListener(ev,sync));
+    v.addEventListener('ended',()=>{v.currentTime=0});
+  });
+
+  /* scroll-driven: gallery, journey line, band, marquee, parallax, nav */
+  const hs=document.getElementById('services'), track=document.getElementById('track'), hsbar=document.getElementById('hsbar'), hsn=document.getElementById('hsn');
+  const steps=document.getElementById('steps'), stepEls=[...steps.querySelectorAll('.step')], prog=document.getElementById('prog');
+  const bandIn=document.getElementById('bandIn'), nav=document.getElementById('nav');
+  const total=track.children.length; document.getElementById('hst').textContent=String(total).padStart(2,'0');
+  let hsActive=false, dist=0;
+  function layout(){
+    hsActive=innerWidth>900 && innerHeight>620;
+    if(hsActive){dist=Math.max(0,track.scrollWidth-innerWidth);hs.style.height=(innerHeight+dist)+'px'}
+    else{hs.style.height='';track.style.transform=''}
+  }
+  window.layout=layout;
+  addEventListener('resize',layout);layout();
+  addEventListener('load',layout);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+  let lastY=scrollY, vel=0, x1=0, x2=0;
+  const speedEls=[...document.querySelectorAll('[data-speed]')];
+  function tick(){
+    const y=scrollY, dy=y-lastY; lastY=y;
+    vel+=(dy-vel)*.1;
+    nav.classList.toggle('scrolled',y>30);
+    nav.classList.toggle('hide',y>600 && vel>2 && !langBox.classList.contains('open'));
+    if(hsActive){
+      const p=clamp((y-hs.offsetTop)/Math.max(1,hs.offsetHeight-innerHeight));
+      track.style.transform=`translate3d(${(root.dir==='rtl'?1:-1)*p*dist}px,0,0)`;
+      hsbar.style.transform=`scaleX(${p})`;
+      hsn.textContent=String(Math.min(total,1+Math.floor(p*(total-.01)))).padStart(2,'0');
+    }
+    const sr=steps.getBoundingClientRect();
+    const sp=clamp((innerHeight*.75-sr.top)/(sr.height+innerHeight*.2));
+    prog.style.setProperty('--p',sp);
+    stepEls.forEach((s,i)=>s.classList.toggle('lit',sp>=i/(stepEls.length-1)-.02));
+    const br=bandIn.getBoundingClientRect();
+    bandIn.style.setProperty('--b',clamp((innerHeight-br.top)/(innerHeight*.8)));
+    speedEls.forEach(el=>{const r=el.parentElement.getBoundingClientRect();el.style.transform=`translateY(${(r.top+r.height/2-innerHeight/2)*+el.dataset.speed}px)`});
+    if(!reduce){
+      const boost=Math.min(14,Math.abs(vel))*.6;
+      const w1=m1.scrollWidth/3, w2=m2.scrollWidth/3;
+      x1-=(.5+boost); x2+=(.4+boost);
+      if(-x1>w1)x1+=w1; if(x2>0)x2-=w2;
+      m1.style.transform=`translate3d(${x1}px,0,0)`;
+      m2.style.transform=`translate3d(${x2}px,0,0)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  x2=-(m2.scrollWidth/3);
+  function raf(time){if(lenis)lenis.raf(time);requestAnimationFrame(raf)}
+  requestAnimationFrame(raf);
+  requestAnimationFrame(tick);
+
+  /* form */
+  const form=document.getElementById('form'), ok=document.getElementById('ok');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=document.getElementById('f-name'), p=document.getElementById('f-phone');
+    ok.hidden=false;
+    if(!n.value.trim()||!p.value.trim()){ok.textContent=tr('msg.err');(n.value.trim()?p:n).focus();return}
+    const sel=document.getElementById('f-dir');
+    ok.textContent=tr('msg.ok').replace('{name}',n.value.trim()).replace('{dir}',sel.options[sel.selectedIndex].text);
+  });
+})();
+</script>
+
+</body>
+</html>
